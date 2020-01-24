@@ -1,0 +1,294 @@
+/* Overall */
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "vtks chalk";
+    src: url("../css/vtks chalk 79.ttf") format("truetype");
+}
+
+/* ----------------------------------------- */
+/* Intro */
+/* px = nano changes
+% = great changes
+*/
+.background {
+    position: relative;
+    height: auto;
+    width: 100%;
+    border: 30px ridge wheat;
+}
+
+/* .BG_animation {
+    background-repeat: repeat-x;
+    border: 4px solid black;
+    animation-name: moveBG;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;   
+}
+
+@keyframes moveBG {
+    100% {
+        background-position-x: 100%;
+    }
+} */
+
+.intro {
+    position: absolute;
+    margin-top: -50%;
+    margin-left: 25%;
+    color: rgb(245, 222, 179);
+    font-size: 50px;
+    /* animation-name: fade-in;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards; */
+    /* opacity: 0; */
+}
+
+.start {
+    position: absolute;
+    margin-top: -20%;
+    margin-left: 13%;
+    height: 40px;
+    width: 500px;
+    border: 4px solid rgb(0, 0, 0);
+    background: rgb(0, 128, 0);
+    /* animation-name: fade-in;
+    animation-duration: 2s;
+    animation-delay: 4s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards; */
+    /* opacity: 0; */
+}
+
+.start:hover {
+    background: rgb(0, 83, 0);
+}
+
+@keyframes fade-in {
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Character Screen */
+
+.character img {
+    position: absolute;
+}
+
+.character_screen_title {
+    margin-top: -82%;
+    margin-left: 18%;
+    color: rgb(56, 38, 4);
+    font-size: 75px;
+}
+
+.b_girl {
+    margin-top: -59%;
+    margin-left: -42%;
+    height: 600px;
+    width: 500px;
+    z-index: 1;
+}
+
+.b_girl_name {
+    position: absolute;
+    margin-top: -50%;
+    margin-left: 11%;
+    height: 65px;
+    width: 450px;
+    background: rgb(0, 0, 0);
+    border-radius: 30px;
+    color: rgb(0, 128, 0);
+    text-align: center;
+    line-height: 2;
+    font-size: 33px;
+    z-index: 2;
+}
+
+.b_boy {
+    margin-top: -61%;
+    margin-left: -90%;
+    height: 600px;
+    width: 500px;
+    z-index: 1;
+}
+
+.b_boy_name {
+    position: absolute;
+    margin-top: -50%;
+    margin-left: 5%;
+    height: 65px;
+    width: 450px;
+    background: rgb(0, 0, 0);
+    border-radius: 30px;
+    color: rgb(0, 128, 0);
+    text-align: center;
+    line-height: 2;
+    font-size: 33px;
+    z-index: 2;
+}
+
+/* .b_boy_name:hover {
+    background: green;
+    color: black;
+} */
+
+/* Level Select screen */
+.hide {
+    display: none;
+}
+
+.level_select_title {
+    margin-top: -82%;
+    margin-left: 28%;
+    color: rgb(250, 231, 196);
+    font-family: "vtks chalk";
+    font-size: 150px;
+    text-decoration: underline;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+ul {
+    display: inline-block;
+}
+
+li:hover {
+    text-decoration: underline;
+}
+
+.level_select {
+    position: absolute;
+    margin-top: -55%;
+    padding: 0px 50px;
+    color: rgb(255, 255, 255);
+    font-family: "vtks chalk";
+    font-size: 32px;
+}
+
+.down {
+    margin-top: -30%;
+}
+
+/* Money and Coffee Served Display */
+
+.adjust {
+    margin-top: -70%;
+    margin-left: 61%;
+}
+
+.adjust ul {
+    list-style-type: none;
+}
+
+.adjust li {
+    font-size: 25px;
+}
+
+.adjust li:hover {
+    text-decoration: none;
+}
+
+/* gameplay layout */
+.gameplayTitle {
+    margin-top: -75%;
+    margin-left: 28%;
+    color: rgb(255, 179, 40);
+    font-family: "vtks chalk";
+    font-size: 75px;
+    text-decoration: none;
+}
+
+.level {
+    position: relative;
+}
+
+.level img {
+    position: absolute;
+}
+
+.counter {
+    margin-top: -30%;
+    margin-left: -3%;
+    width: 980px;
+    height: 300px;
+}
+
+.coffee_maker {
+    margin-top: -43%;
+    height: 155px;
+}
+
+.coffee_beans {
+    margin-top: -45%;
+    margin-left: 63%;
+    height: 178px;
+}
+
+.coffee {
+    margin-top: -36%;
+    margin-left: 32%;
+    height: 78px;
+    z-index: 1;
+}
+
+.deco {
+    margin-top: -24%;
+    margin-left: 30%;
+    height: 200px;
+    z-index: 1;
+}
+
+/*gameplay characters*/
+.level_character {
+    margin-top: -60%;
+    margin-left: -75%;
+}
+
+.trigger {
+    position: absolute;
+    margin-top: -75%;
+    height: 200px;
+    width: 300px;
+    z-index: 1;
+}
+
+.fill_bar {
+    position: relative;
+    margin-top: -75%;
+    height: 300px;
+    width: 150px;
+    background: rgb(110, 66, 0);
+    border: 15px solid black;
+    border-radius: 30px;
+}
+
+.fill {
+    position: absolute;
+    margin-top: -8px;
+    height: 280px;
+    width: 122px;
+    background: black
+}
+
+.points {
+    margin-top: -19%;
+    margin-left: 60%;
+    font-size: 30px;
+    color: rgb(255, 253, 250);
+}
+
+.marginTop {
+    margin-top: -8%;
+}
+
+
+/* Icons made by <a href="https://www.flaticon.com/" from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> */
