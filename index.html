@@ -25,22 +25,22 @@
             </div>
         </div>
 
-        <div class="row character" id="character">
+        <div class="row barista" id="barista">
 
             <div class="col-sm-6">
-                <div class="barista" id="barista_boy_name" value="male"></div>
+                <div class="b_boy_name" id="BB_name">Ka Fei</div>
 
             </div>
 
             <div class="col-sm-6">
-                <div class="barista" id="barista_girl_name" value="female"></div> 
+                <div class="b_girl_name" id="BG_name">Buna</div> 
             </div>
 
         </div>
 
         <!-- Level Select -->
 
-        <div class="row hide" id="level_select">
+        <div class="row level_select" id="level_select">
 
             <div class="col-sm-4">
 
@@ -77,7 +77,7 @@
 
         </div>
 
-        <div class="row hide down" id="level_select">
+        <div class="row level_select down" id="level_select">
 
             <div class="col-sm-6">
 
@@ -104,23 +104,39 @@
 
         </div>
 
-        <div class="row hide adjust" id="level_select">
+        <div class="row level_select adjust" id="level_select">
+
             <div class="col-sm-12">
 
                 <h2>Total Gameplay: </h2>
                 
                 <ul>
-                    <li>Coffee: <span id='coffee'></span></li>
-                    <li>Money: <span id='money'>G</span></li>
+                    <li>Sales: <span id='coffeeSold'></span> cups</li>
+                    <li>Money: <span id='money'></span>G</li>
                 </ul>
 
             </div>
+
+        </div>
+
+        <div class="row level_select store" id="level_select">
+
+            <div class="col-sm-12">
+
+                <h2 id="store">Store</h2>
+
+            </div>
+
         </div>
 
         <!-- Cafe Elements -->
-        <div class="row hide level" id="level">
+        <div class="row level" id="level">
 
             <div class="col-sm-12">
+
+                <img src="" alt="" id="playerPoseRest">
+
+                <img src="" alt="" id="playerPosePour">
 
                 <img id="counter" class="counter" src="media/counter.png">
 
@@ -132,14 +148,11 @@
 
                 <img id="deco" class="deco" src="media/coffee-plant.png">
 
-                <img src="pour" class="pour" src="media/pour.png">
+                <img id="coffeePour" src="">
 
                 <div class="fill_bar" id="fill_bar">
                     <div id="fill" class="fill"></div>
                 </div>
-
-                <div class="points" id="coffeePts"></div>
-                <div class="points marginTop" id="moneyPts"></div>
 
             </div>
             
@@ -151,8 +164,5 @@
 </body>
 </html>
 
-
-<!-- sprites: keyframes -->
-<!-- backgrounds: canvas -->
 
 
