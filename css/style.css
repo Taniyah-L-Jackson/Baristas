@@ -9,7 +9,8 @@
 }
 
 body {
-    overflow-x: hidden;
+    height: 650px;
+    overflow: hidden;
 }
 
 /* ----------------------------------------- */
@@ -19,7 +20,7 @@ body {
 */
 .background {
     position: relative;
-    height: auto;
+    height: 100%;
     width: 100%;
     border: 30px ridge wheat;
 }
@@ -41,11 +42,11 @@ body {
 
 .intro {
     position: absolute;
-    margin-top: -50%;
-    margin-left: 25%;
-    color: rgb(245, 222, 179);
+    top: -430px;
+    left: 365px;
+    color: rgb(140, 91, 0);
     font-family: none;
-    font-size: 50px;
+    font-size: 60px;
     animation-name: fade-in;
     animation-duration: 2s;
     animation-delay: 1s;
@@ -56,8 +57,8 @@ body {
 
 .start {
     position: absolute;
-    margin-top: -30%;
-    margin-left: 25%;
+    top: -210px;
+    left: 300px;
     height: 100px;
     width: 500px;
     border: none;
@@ -86,29 +87,54 @@ body {
 
 /* Character Screen */
 
+.barista {
+    display: none;
+}
+
 .barista img {
     position: absolute;
 }
 
 .barista_screen_title {
-    margin-top: -82%;
-    margin-left: 18%;
+    margin-top: -610px;
+    margin-left: 245px;
     color: rgb(56, 38, 4);
-    font-size: 75px;
+    font-size: 65px;
+}
+
+.b_boy {
+    top: -550px;
+    left: 18px;
+    height: 600px;
+    width: 500px;
 }
 
 .b_girl {
-    margin-top: -59%;
-    margin-left: -42%;
+    top: -550px;
+    left: 60px;
     height: 600px;
     width: 500px;
+}
+
+.b_boy_name {
+    position: absolute;
+    top: -185px;
+    left: 35px;
+    height: 65px;
+    width: 450px;
+    background: rgb(0, 0, 0);
+    border-radius: 30px;
+    color: rgb(0, 128, 0);
+    text-align: center;
+    line-height: 2;
+    font-size: 33px;
     z-index: 1;
 }
 
 .b_girl_name {
     position: absolute;
-    margin-top: -50%;
-    margin-left: 11%;
+    top: -185px;
+    left: 80px;
     height: 65px;
     width: 450px;
     background: rgb(0, 0, 0);
@@ -117,30 +143,7 @@ body {
     text-align: center;
     line-height: 2;
     font-size: 33px;
-    z-index: 2;
-}
-
-.b_boy {
-    margin-top: -61%;
-    margin-left: -90%;
-    height: 600px;
-    width: 500px;
     z-index: 1;
-}
-
-.b_boy_name {
-    position: absolute;
-    margin-top: -50%;
-    margin-left: 5%;
-    height: 65px;
-    width: 450px;
-    background: rgb(0, 0, 0);
-    border-radius: 30px;
-    color: rgb(0, 128, 0);
-    text-align: center;
-    line-height: 2;
-    font-size: 33px;
-    z-index: 2;
 }
 
 /* .b_boy_name:hover {
@@ -155,20 +158,26 @@ body {
 } */
 
 .level_select_title {
-    margin-top: -82%;
-    margin-left: 28%;
+    position: absolute;
+    top: -615px;
+    left: 385px;
     color: rgb(250, 231, 196);
     font-family: "vtks chalk";
-    font-size: 150px;
+    font-size: 100px;
     text-decoration: underline;
 }
 
 h2 {
     text-decoration: underline;
+    font-size: 35px;
 }
 
 ul {
     display: inline-block;
+}
+
+li {
+    font-size: 25px;
 }
 
 li:hover {
@@ -177,23 +186,47 @@ li:hover {
 
 .level_select {
     position: absolute;
-    margin-top: -55%;
-    padding: 0px 50px;
-    color: rgb(255, 255, 255);
+    top: 200px;
+    left: 10px;
+    padding: 0px 79px;
+    color: white;
     font-family: "vtks chalk";
-    font-size: 32px;
     display: none;
 }
 
 .down {
-    margin-top: -30%;
+    margin-top: 230px;
 }
+
+.unavailable:hover {
+    color: red;
+    animation-name: error;
+    animation-duration: 0.5s;
+    animation-iteration-count: 3;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes error {
+    100% {
+        opacity: 1;
+    }
+}
+
 
 /* Money and Coffee Served Display */
 
 .adjust {
-    margin-top: -70%;
-    margin-left: 61%;
+    position: absolute;
+    top: 40px;
+    left: 800px;
+    width: 445px;
+    transform: rotate(-15deg);
+}
+
+.adjust h2 {
+    font-size: 25px;
 }
 
 .adjust ul {
@@ -201,7 +234,7 @@ li:hover {
 }
 
 .adjust li {
-    font-size: 25px;
+    font-size: 23px;
 }
 
 .adjust li:hover {
@@ -209,46 +242,103 @@ li:hover {
 }
 
 /* Store */
-.store {
-    margin-top: -80px;
-    margin-left: 30px;
-    color: rgb(255, 155, 0);
+.storeBtn {
+    position: absolute;
+    top: 65px;
+    left: 100px;
+    color: rgb(255, 153, 0);
+    font-family: "vtks chalk";
     font-size: 50px;
     text-decoration: none;
+    z-index: 1;
+    transform: rotate(-15deg);
+    display: none;
 }
 
-.store:hover {
+.storeBtn:hover {
     text-decoration: underline;
 }
 
 .store_screen_title {
-    margin-top: -70%;
-    margin-left: 57%;
-    color: white;
-    font-family: "vtks chalk";
+    position: absolute;
+    top: -600px;
+    left: 650px;
+    color: rgb(255, 255, 255);
+    font-family: "Times New Roman";
     font-size: 80px;
     text-decoration: underline;
 }
 
+.shrink {
+    font-size: 50px;
+}
+
+.moneyAvailable {
+    position: absolute;
+    top: -550px;
+    font-family: "Times New Roman";
+    color: white;
+    text-transform: none;
+}
+
+.store {
+    display: none;
+}
+
+.store img {
+    position: absolute;
+}
+
+.coffeeMachine {
+    top: -413px;
+    left: 60px;
+    height: 155px;
+}
+
+.coffeeBeans {
+    top: -400px;
+    left: 320px;
+    height: 150px;
+}
+
+.mug {
+    top: -313px;
+    left: 670px;
+    height: 70px;
+}
+
+.bought {
+    opacity: 0.5;
+}
+
+
+
+/* Store Back Btn */
+
 .backBtnST {
     position: absolute;
-    margin-top: 50%;
-    margin-left: 60%;
+    margin-top: 245px;
+    margin-left: 820px;
     height: 100px;
-    width: 450px;
+    width: 255px;
     border: none;
     background: none;
-    color: rgb(255, 255, 255);
-    font-family: 'vtks chalk';
-    font-size: 30px;
-    text-align: left;
+    color: rgb(255, 194, 51);
+    font-family: 'Times New Roman';
+    font-size: 35px;
+    text-decoration: none;
+    transform: none;
+}
+
+.backBtnST:hover {
+    text-decoration: underline;
 }
 
 /* back button */
 .backBtnLS {
     position: absolute;
-    margin-top: 50%;
-    margin-left: 70%;
+    top: -140px;
+    left: 875px;
     height: 100px;
     width: 300px;
     border: none;
@@ -261,11 +351,10 @@ li:hover {
 
 /* gameplay layout */
 .gameplayTitle {
-    margin-top: -75%;
-    margin-left: 28%;
-    color: rgb(255, 179, 40);
-    font-family: "vtks chalk";
+    color: white;
+    font-family: "Times New Roman";
     font-size: 75px;
+    font-style: oblique;
     text-decoration: none;
 }
 
@@ -278,48 +367,48 @@ li:hover {
 }
 
 .counter {
-    margin-top: -30%;
-    margin-left: -3%;
-    width: 980px;
-    height: 300px;
+    top: -262px;
+    left: -27px;
+    width: 900px;
+    height: 230px;
 }
 
 .coffee_maker {
-    margin-top: -43%;
+    top: -415px;
     height: 155px;
 }
 
 .coffee_beans {
-    margin-top: -45%;
-    margin-left: 63%;
-    height: 178px;
+    top: -405px;
+    left: 630px;
+    height: 145px;
 }
 
 .coffee {
-    margin-top: -36%;
-    margin-left: 32%;
-    height: 78px;
+    top: -315px;
+    left: 308px;
+    height: 60px;
     z-index: 1;
 }
 
 .deco {
-    margin-top: -24%;
-    margin-left: 30%;
-    height: 200px;
+    top: -215px;
+    left: 335px;
+    height: 170px;
     z-index: 1;
 }
 
 .pourfx_BB {
-    margin-top: -505px;
-    margin-left: 380px;
-    height: 128px;
+    top: -350px;
+    left: 315px;
+    height: 80px;
     width: 20px;
-    transform: rotate(-6deg);
+    transform: rotate(-4deg);
 }
 
 .pourfx_BG {
-    margin-top: -430px;
-    margin-left: 400px;
+    top: -330px;
+    left: 323px;
     height: 60px;
     width: 20px;
     transform: rotate(-6deg);
@@ -327,13 +416,15 @@ li:hover {
 
 /*gameplay characters*/
 .characterPos_male {
-    margin-top: -65%;
-    margin-left: 18%;
+    top: -532px;
+    left: 196px;
+    height: 500px;
 }
 
 .characterPos_female {
-    margin-top: -65%;
-    margin-left: 23%;
+    top: -565px;
+    left: 230px;
+    height: 500px;
 }
 
 .trigger {
@@ -346,7 +437,8 @@ li:hover {
 
 .fill_bar {
     position: relative;
-    margin-top: -75%;
+    top: -470px;
+    left: 900px;
     height: 300px;
     width: 150px;
     background: rgb(110, 66, 0);
@@ -368,8 +460,8 @@ li:hover {
 
 .backBtnGP {
     position: absolute;
-    margin-top: 44%;
-    margin-left: 50%;
+    top: -200px;
+    left: 535px;
     height: 150px;
     width: 300px;
     border: none;

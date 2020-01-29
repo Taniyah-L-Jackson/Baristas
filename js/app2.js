@@ -4,51 +4,41 @@ var text = document.getElementById('text');
 var gameBtn = document.getElementById('game');
 //------------------------------------------------
 
-//Title Screen
-text.innerText = "Casual Baristas"
-background.src = 'media/title_screen.jpg'
-// background.classList.add('background');
-gameBtn.innerText = 'Click to Begin';
-gameBtn.addEventListener('click', characterSelection);
+//Title Screen function
+function intro() {
 
+    text.innerText = "Casual Baristas"
+    background.src = 'media/title_screen.jpg'
+    gameBtn.innerText = 'Click to Begin';
+    gameBtn.addEventListener('click', characterSelection);
+
+}
+intro();
 //-----------------------------------------------
 //--------------------------------------------
 
-//--For Character Selection Function
+//For Character Selection Function
 var barista = document.getElementById('barista');
 var baristaStore = [];
-var barista_boy = new Image();
-var barista_girl = new Image();
-var BB_name = document.getElementById('BB_name')
-BB_name.style.visibility = 'hidden';
-var BG_name = document.getElementById('BG_name')
-BG_name.style.visibility = 'hidden';
 
 //Select Character function
 function characterSelection() {
+
+    //display
+    barista.style.display = 'block';
    
-    //get rid of button and change title
+    //title
     text.className = '';
     text.classList.add('barista_screen_title');
     text.innerText = 'Choose Your Barista';
-    gameBtn.style.visibility = 'hidden';
 
-    //change background and remove animation
+    //button
+    gameBtn.style.display = 'none'
+
+    //background
     background.src = 'media/coffee_wall_intro.png';
     // background.classList.remove('BG_animation');
  
-    //--Barista_Boy
-    barista_boy.src = 'media/barista_boy[headshot].png';
-    barista_boy.classList.add('b_boy');
-    barista.appendChild(barista_boy);
-    BB_name.style.visibility = 'visible';
-    
-    //--Barista Girl
-    barista_girl.src = 'media/barista_girl[headshot].png';
-    barista_girl.classList.add('b_girl');
-    barista.appendChild(barista_girl);
-    BG_name.style.visibility = 'visible';
-    
     //set event listeners for name blocks (determines played character)
     BB_name.addEventListener('click', useBarista);
     BG_name.addEventListener('click', useBarista);
@@ -74,6 +64,8 @@ function characterSelection() {
 //For level select function
 var coffeeTxt = document.getElementById('coffeeSold');
 var moneyTxt = document.getElementById('money');
+var record = [coffeeSold, moneyEarned]
+var changeBGLVL = ''
 
 //Level Select 
 function levelSelect() {
@@ -82,20 +74,30 @@ function levelSelect() {
     background.src = 'media/chalkboard.png';
     
     //Title
+    text.className = '';
     text.innerText = 'Menu';
     text.classList.add('level_select_title')
+
+    //button
+    //--gameBtn
+    gameBtn.style.display = 'block';
+    gameBtn.className = '';
+    gameBtn.classList.add('backBtnLS')
+    gameBtn.innerText = 'Back to Character Select';
+    gameBtn.removeEventListener('click', characterSelection);
+    gameBtn.addEventListener('click', goBackLS);
+    //--storeBtn
+    storeBtn.style.display = 'block';
+    storeBtn.innerText = 'Store';
+    storeBtn.classList.add('storeBtn')
+    storeBtn.addEventListener('click', store)
 
     //Record Amounts
     coffeeTxt.innerText = coffeeSold
     moneyTxt.innerText = moneyEarned
     
     //Clear character selection screen
-    barista_boy.style.visibility = 'hidden';
-    barista_girl.style.visibility = 'hidden';
-    barista_boy.src = '';
-    barista_girl.src = '';
-    BB_name.style.visibility = 'hidden';
-    BG_name.style.visibility = 'hidden';
+    barista.style.display = 'none';
 
     //remove first element if user changes characters
     if (baristaStore.length > 1) {
@@ -104,75 +106,287 @@ function levelSelect() {
 
     //Level Select List:
     document.querySelectorAll('#level_select').forEach(function(level_select) {
-        level_select.style.display = 'inline-block';
+        level_select.style.display = 'block';
     });
 
     //--Levels
-    var lvlOneEasy = document.getElementById('level_One_Easy');
-    var lvlOneHard = document.getElementById('level_One_Hard');
-    lvlOneEasy.addEventListener('click', gamePlay);
-    lvlOneHard.addEventListener('click', gamePlay);
-    lvlOneEasy.innerText = "[Easy].............Free";
-    lvlOneHard.innerText = "[Hard].............10 Cups";
-
-    var lvlTwoEasy = document.getElementById('level_Two_Easy');
-    var lvlTwoHard = document.getElementById('level_Two_Hard');
-    // lvlTwoEasy.addEventListener('click', gamePlay);
-    // lvlTwoHard.addEventListener('click', gamePlay);
-    lvlTwoEasy.innerText = "[Easy].............25 Cups";
-    lvlTwoHard.innerText = "[Hard].............45 Cups";
-
-    var lvlThreeEasy = document.getElementById('level_Three_Easy');
-    var lvlThreeHard = document.getElementById('level_Three_Hard');
-    // lvlThreeEasy.addEventListener('click', gamePlay);
-    // lvlThreeHard.addEventListener('click', gamePlay);
-    lvlThreeEasy.innerText = "[Easy].............70 Cups";
-    lvlThreeHard.innerText = "[Hard].............100 Cups";
-
-    var lvlFourEasy = document.getElementById('level_Four_Easy');
-    var lvlFourHard = document.getElementById('level_Four_Hard');
-    // lvlFourEasy.addEventListener('click', gamePlay);
-    // lvlFourHard.addEventListener('click', gamePlay);
-    lvlFourEasy.innerText = "[Easy]........135 Cups; 10000G";
-    lvlFourHard.innerText = "[Hard]........175 Cups; 20000G";
-
-    var lvlFiveEasy = document.getElementById('level_Five_Easy');
-    var lvlFiveHard = document.getElementById('level_Five_Hard');
-    // lvlFiveEasy.addEventListener('click', gamePlay);
-    // lvlFiveHard.addEventListener('click', gamePlay);
-    lvlFiveEasy.innerText = "[Easy]........220 Cups: 30000G";
-    lvlFiveHard.innerText = "[Hard]........320 Cups; 40000G";
-
-    
-    //Back Button
-    gameBtn.style.visibility = 'visible';
-    gameBtn.className = '';
-    gameBtn.classList.add('backBtnLS')
-    gameBtn.innerText = 'Back to Character Select';
-    gameBtn.addEventListener('click', goBackLS);
-
-    function goBackLS() {
-        text.className = '';
-        gameBtn.className = '';
-        document.querySelectorAll('#level_select').forEach(function(level_select) {
-            level_select.style.display = 'none';
-        });
-        barista_boy.style.visibility = 'visible';
-        barista_girl.style.visibility = 'visible';
-        BB_name.style.visibility = 'visible';
-        BG_name.style.visibility = 'visible';
-
-        characterSelection();
+    let lvlOneEasy = document.getElementById('level_One_Easy');
+    let lvlOneHard = document.getElementById('level_One_Hard');
+    lvlOneEasy.addEventListener('click', playable);
+    lvlOneHard.addEventListener('click', playable);
+    lvlOneHardValues = {
+        neededCoffee: 10,
+        neededMoney: 30
     }
-}
-//--------------------------------------------
 
+    let lvlTwoEasy = document.getElementById('level_Two_Easy');
+    let lvlTwoHard = document.getElementById('level_Two_Hard');
+    lvlTwoEasy.addEventListener('click', playable);
+    lvlTwoEasyValues = {
+        neededCoffee: 25,
+        neededMoney: 100
+    }
+    lvlTwoHard.addEventListener('click', playable);
+    lvlTwoHardValues = {
+        neededCoffee: 45,
+        neededMoney: 300
+    }
+
+    let lvlThreeEasy = document.getElementById('level_Three_Easy');
+    let lvlThreeHard = document.getElementById('level_Three_Hard');
+    lvlThreeEasy.addEventListener('click', playable);
+    lvlThreeEasyValues = {
+        neededCoffee: 70,
+        neededMoney: 500
+    }
+    lvlThreeHard.addEventListener('click', playable);
+    lvlThreeHardValues = {
+        neededCoffee: 100,
+        neededMoney: 800
+    }
+
+    let lvlFourEasy = document.getElementById('level_Four_Easy');
+    let lvlFourHard = document.getElementById('level_Four_Hard');
+    lvlFourEasy.addEventListener('click', playable);
+    lvlFourEasyValues = {
+        neededCoffee: 135,
+        neededMoney: 10000
+    }
+    lvlFourHard.addEventListener('click', playable);
+    lvlFourHardValues = {
+        neededCoffee: 175,
+        neededMoney: 20000
+    }
+
+    let lvlFiveEasy = document.getElementById('level_Five_Easy');
+    var lvlFiveHard = document.getElementById('level_Five_Hard');
+    lvlFiveEasy.addEventListener('click', playable);
+    lvlFiveEasyValues = {
+        neededCoffee: 220,
+        neededMoney: 30000
+    }
+    lvlFiveHard.addEventListener('click', playable);
+    lvlFiveHardValues = {
+        neededCoffee: 320,
+        neededMoney: 40000
+    }
+
+    //playable function for locked levels
+    function playable() {
+
+        switch (this.id) {
+
+            case ("level_One_Easy"):
+
+                changeBGLVL = 'media/coffee_wall.png';
+                gamePlay();
+                break;
+
+            case ("level_One_Hard"):
+
+                if (coffeeSold >= lvlOneHardValues.neededCoffee && moneyEarned >= lvlOneHardValues.neededMoney) {
+                    
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
+                    }
+
+                    coffeeSold -= 10
+                    moneyEarned -= 30
+                    
+                    gamePlay() //activate gamePlay
+                }else {
+                    this.classList.add('unavailable')
+                }
+                break;
+
+            case ("level_Two_Easy"):
+
+                changeBGLVL = 'media/coffee_wall2.png';
+
+                if (coffeeSold >= lvlTwoEasyValues.neededCoffee && moneyEarned >= lvlTwoEasyValues.neededMoney) {
+
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
+                    }
+
+                    coffeeSold -= 25
+                    moneyEarned -= 100
+                
+                    gamePlay() //activate gamePlay
+        
+                }else {
+                    this.classList.add('unavailable')
+                }
+                break;
+
+            case ("level_Two_Hard"):
+
+                if (coffeeSold >= lvlTwoHardValues.neededCoffee && moneyEarned >= lvlTwoHardValues.neededMoney) {
+
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
+                    }
+                
+                    coffeeSold -= 45
+                    moneyEarned -= 300
+
+                    gamePlay() //activate gamePlay
+        
+                }else {
+                    this.classList.add('unavailable')
+                }
+                break
+
+            case ("level_Three_Easy"):
+
+                changeBGLVL = 'media/coffee_wall3.png';
+
+                if (coffeeSold >= lvlThreeEasyValues.neededCoffee && moneyEarned >= lvlThreeEasyValues.neededMoney) {
+
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
+                    }
+
+                    coffeeSold -= 70
+                    moneyEarned -= 500
+                
+                    gamePlay() //activate gamePlay
+        
+                }else {
+                    this.classList.add('unavailable')
+                }                
+                break;
+
+            case ("level_Three_Hard"):
+
+                if (coffeeSold >= lvlThreeHardValues.neededCoffee && moneyEarned >= lvlThreeHardValues.neededMoney) {
+
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
+                    }
+
+                    coffeeSold -= 100
+                    moneyEarned -= 800
+                
+                    gamePlay() //activate gamePlay
+        
+                }else {
+                    this.classList.add('unavailable')
+                }
+                break;
+
+            case ("level_Four_Easy"):
+
+                changeBGLVL = 'media/coffee_wall4.png';
+
+                if (coffeeSold >= lvlFourEasyValues.neededCoffee && moneyEarned >= lvlFourEasyValues.neededMoney) {
+
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
+                    }
+
+                    coffeeSold -= 135
+                    moneyEarned -= 10000
+                
+                    gamePlay() //activate gamePlay
+        
+                }else {
+                    this.classList.add('unavailable')
+                }
+                break;
+
+            case ("level_Four_Hard"):
+
+                if (coffeeSold >= lvlFourHardValues.neededCoffee && moneyEarned >= lvlFourHardValues.neededMoney) {
+
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
+                    }
+
+                    coffeeSold -= 175
+                    moneyEarned -= 20000
+                
+                    gamePlay() //activate gamePlay
+        
+                }else {
+                    this.classList.add('unavailable')
+                }
+                break;
+
+            case ("level_Five_Easy"):
+
+                changeBGLVL = 'media/coffee_wall5.png';
+
+                if (coffeeSold >= lvlFiveEasyValues.neededCoffee && moneyEarned >= lvlFiveEasyValues.neededMoney) {
+
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
+                    }
+
+                    coffeeSold -= 220
+                    moneyEarned -= 30000
+                
+                    gamePlay() //activate gamePlay
+        
+                }else {
+                    this.classList.add('unavailable')
+                }
+                break;
+
+            case ("level_Five_Hard"):
+
+                if (coffeeSold == lvlFiveHardValues.neededCoffee && moneyEarned == lvlFiveHardValues.neededMoney) {
+
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
+                    } 
+
+                    coffeeSold -= 320
+                    moneyEarned -= 40000
+                
+                    gamePlay() //activate gamePlay
+        
+                }else {
+                    this.classList.add('unavailable')
+                }
+                break;
+        
+            
+        }
+
+    }
+
+}
+
+//Back Button function (for above function)
+function goBackLS() {
+    text.className = '';
+    gameBtn.className = '';
+    gameBtn.removeEventListener('click', goBackLS);
+    document.querySelectorAll('#level_select').forEach(function(level_select) {
+        level_select.style.display = 'none';
+    });
+    barista.style.display = 'block';
+    storeBtn.style.display = 'none';
+    characterSelection();
+}
+
+//--------------------------------------------
+//if this.addevenlistener = lvl whichever,change background
 //--------------------------------------------
 
 //For Gamplay function
-var game_end = false
+var game_end = ''
 var level = document.getElementById('level');
-level.style.visibility = 'hidden';
+level.style.display = 'none';
 
 //For Gameplay and Pour function
 var bar = 280
@@ -181,12 +395,12 @@ var pourFx = document.getElementById('coffeePour');
 //For Gameplay, Pour, and Store Function
 var coffee_maker = document.getElementById('coffee_maker');
 var coffee_beans = document.getElementById('coffee_beans');
-var coffee = document.getElementById('coffee');
+var coffee_mug = document.getElementById('coffee');
 
 //Gameplay
 function gamePlay() {
 
-    let stillPlaying = true
+    let stillPlaying = true;
     var playerPoseRest = document.getElementById('playerPoseRest');
     var playerPosePour = document.getElementById('playerPosePour');
     pourFx.src = "media/pour.png" //added here since CSS varies
@@ -211,29 +425,35 @@ function gamePlay() {
     }
 
     //First shown
-    playerPoseRest.style.visibility = 'visible'; //for back btn
-    playerPosePour.style.visibility = 'hidden';
-    pourFx.style.visibility = 'hidden';
+    playerPoseRest.style.display = 'block'; //for back btn
+    playerPosePour.style.display = 'none';
+    pourFx.style.display = 'none';
 
-    //background
-    background.src = 'media/coffee_wall.png';
+    //outer elements
+    background.src = changeBGLVL
     document.querySelectorAll('#level_select').forEach(function(level_select) {
-        level_select.style.visibility = 'hidden';
+        level_select.style.display = 'none';
     });
-    level.style.visibility = 'visible';
+    level.style.display = 'block'
 
     //Title
     text.innerText = '';
     text.classList.add('gameplayTitle');
 
-    //reset bar for second gameplay
-    if (fill_bar_inner.style.height != (280 + 'px')) { 
-        fill_bar_inner.style.height = 280 + 'px';
-    }
+    //Buttons
+    //--gameBtn
+    gameBtn.className = '';
+    gameBtn.classList.add('backBtnGP');
+    gameBtn.innerText = 'Back to Level Select';
+    gameBtn.removeEventListener('click', goBackLS);
+    gameBtn.addEventListener('click', goBackGP);
+    //--storeBtn
+    storeBtn.style.display = 'none';
 
     //Force Stop timer For back button
     if (stillPlaying) {
-        
+        game_end = false;
+
         //Timer Function
         let timers = [4, 30]
         var t1 = setInterval(timer, 1000)
@@ -266,9 +486,9 @@ function gamePlay() {
                 if (timers[1] < 0) {
 
                     text.innerText = 'Shift Complete!';
-                    playerPoseRest.style.visibility = 'visible';
-                    playerPosePour.style.visibility = 'hidden';
-                    pourFx.style.visibility = 'hidden';
+                    playerPoseRest.style.display = 'block';
+                    playerPosePour.style.display = 'none';
+                    pourFx.style.display = 'none';
                     game_end = true
                     clearInterval(t1);
 
@@ -277,28 +497,29 @@ function gamePlay() {
             }
             
         };
-    }
 
-    //Back Button
-    gameBtn.className = '';
-    gameBtn.classList.add('backBtnGP');
-    gameBtn.innerText = 'Back to Level Select';
-    gameBtn.addEventListener('click', goBackGP);
+    }
     
     function goBackGP() {
         text.className = '';
         gameBtn.className = '';
-        level.style.visibility = 'hidden';
-        playerPosePour.style.visibility = 'hidden';
-        playerPoseRest.style.visibility = 'hidden';
+        background.src = '';
+        gameBtn.removeEventListener('click', goBackGP);
         playerPoseRest.className = '';
         playerPosePour.className = '';
-        pourFx.style.visibility = 'hidden';
+        level.style.display = 'none';
+        pourFx.style.display = 'none';
+        document.onkeydown = null; //stop the keydown
         stillPlaying = false;
+        game_end = true;
         clearInterval(t1);
         document.querySelectorAll('#level_select').forEach(function(level_select) {
-            level_select.style.visibility = 'visible';
+            level_select.style.display = 'block';
         });
+        //reset bar for second gameplay
+        if (fill_bar_inner.style.height != (280 + 'px')) { 
+            fill_bar_inner.style.height = 280 + 'px';
+        }
         levelSelect();
     }
 
@@ -309,60 +530,30 @@ function gamePlay() {
 //For Pour Function
 var fill_bar_inner = document.getElementById('fill');
 
-var fill = 20
-
-var keyStore = []
-
+var fill = 10
 var coffeeSold = 0
 var moneyEarned = 0
-var record = [coffeeSold, moneyEarned]
 
 //Pour Function
 function pour(key) {
 
     if (!game_end) {
 
-        pourFx.style.visibility = 'visible';
+        pourFx.style.display = 'block';
         
         if (key != undefined || window.event) {
 
-            playerPoseRest.style.visibility = 'hidden';
-            playerPosePour.style.visibility = 'visible';
+            playerPoseRest.style.display = 'none';
+            playerPosePour.style.display = 'block';
             
-            if (key.keyCode == 39) {
-                //store pressed key in an array
-                keyStore.push('right');
+            if (key.keyCode == 32) {
 
-            }else if (key.keyCode == 37) {
-                keyStore.push('left');
+                bar -= fill; //add fill amount to bar
+                fill_bar_inner.style.height = bar + 'px';
 
             }
 
-        }
 
-        for (let i = 0; i < keyStore.length; i++) {
-
-            //only takes two values, not one
-            if (keyStore.length == 2) {
-                
-                //sequence must be accurate in order to add to bar
-                if (keyStore[0] == 'left' && keyStore[1] == 'right' ) {
-
-                    bar -= fill; //add fill amount to bar
-                    fill_bar_inner.style.height = bar + 'px';
-
-                }else {
-                    keyStore = []; //set keyStore back to an empty array
-                }
-
-                keyStore = [] //set keyStore back to empty
-
-            }else {
-
-                return;
-
-            }
-            
         }
   
     }
@@ -372,29 +563,51 @@ function pour(key) {
         bar = 280;
         fill_bar_inner.style.height = bar + 'px';
 
-        //if coffee maker src = ".../3000"; add two cups
-        //else; add 1 cup
-        coffeeSold += 1; //add to coffee
+        //increase money
+        if (coffee_beans.src == 'media/coffee-bag.png') {
+            
+            moneyEarned += 30
 
-        //if coffee beans src =
-        moneyEarned += 5; //add to money        
+        }else if(coffee_mug.src == 'media/mocha.png') {
 
+            moneyEarned += 5;
+
+        }else {
+            moneyEarned += 2 
+        }
+
+        //increase Coffee points
+        if (coffee_maker.src == 'media/coffee-machine3000.png') {
+
+            coffeeSold += 3
+
+        }else {
+
+            coffeeSold += 1
+
+        }      
 
     }
 
 }
+//----------------------------------
+//----------------------------------
 
-//For store function
-var goToStore = document.getElementById('store')
-goToStore.classList.add('store')
-goToStore.addEventListener('click', store)
-
+//Store
+var storeBtn = document.getElementById('storeBtn');
+var storeSetup = document.getElementById('store');
+var moneyAvailable = document.getElementById('moneyAvailable');
 
 //Store function
 function store() {
 
+    moneyAvailable.innerText = moneyEarned;
+
+    //display
+    storeSetup.style.display = 'block';
+
     //Background
-    background.src = "media/store.png"
+    background.src = "media/store.png";
 
     //Title
     text.className = '';
@@ -403,75 +616,146 @@ function store() {
 
     //hide other elements 
     document.querySelectorAll('#level_select').forEach(function(level_select) {
-        level_select.style.visibility = 'hidden';
+        level_select.style.display = 'none';
     });
 
-    //backBtn
-    gameBtn.className = ''
-    gameBtn.classList.add('backBtnST')
-    gameBtn.addEventListener('click', gobackST)
+    //Back Btn
+    gameBtn.style.display = 'none'
+    // storeBtn.className = ''
+    storeBtn.classList.add('backBtnST')
+    storeBtn.addEventListener('click', gobackST)
+    storeBtn.removeEventListener('click', store)
+    storeBtn.innerText = "Back to Level Select"
 
     //For Sale
     //---------------------------------------------
 
     //Coffee Machines
-    let forSaleCM = new Image();
-    forSaleCM.src = "media/coffee-machine3000.png";
-    background.appendChild(forSaleCM);
+    let forSaleCM = document.getElementById('coffeeMachine');
     forSaleCM.addEventListener('click', coffeeMaker);
-    //2 extra filled cups
+    //two extra cups per fill
 
     //Beans
-    let forSaleCB = new Image();
-    forSaleCB.src = "media/coffee-bag.png";
-    background.appendChild(forSaleCB);
+    let forSaleCB = document.getElementById('coffeeBeans');
     forSaleCB.addEventListener('click', coffeeBeans);
     //money increases by 30G
 
     //Mugs
-    let forSaleC = new Image();
-    forSaleC.src = "media/mocha.png";
-    background.appendChild(forSaleC);
-    forSaleC.addEventListener('click', coffee);
+    let forSaleC = document.getElementById('mug');
+    forSaleC.addEventListener('click', coffeeMug);
     //money increases by 10G
 
     //--------------------------------------------
 
     //Sales
     function coffeeMaker() {
-        if (moneyEarned = (6500 + 'G')) {
-            coffee_maker.src = forSaleCM.src //change the item
-            //grey out item
+        if (moneyEarned >= 10) { //test
+
+            text.classList.add('shrink');
+            text.innerText = 'Confirm purchase with ENTER. SPACE to cancel';
+
+            document.onkeydown = function confirm(key) {
+
+                if (key.keyCode == 13) {
+                    
+                    coffee_maker.src = forSaleCM.src //change the item
+                    forSaleCM.classList.add('bought');//grey out item
+                    forSaleCM.classList.remove('unavailable');
+                    text.innerText = 'Item Purchased';
+                    moneyEarned -= 1000;
+                    forSaleCM.removeEventListener('click', coffeeMaker);
+
+                }else if(key.keyCode == 32){
+                    text.innerText = 'Purchase Cancelled';
+                }
+
+            }
 
         }else {
-            //flash red
+
+            text.innerText = 'Not Enough G'
+            forSaleCM.classList.add('unavailable');
         }
+        
     }
 
     function coffeeBeans() {
-        if (moneyEarned = (3000 + 'G')) {
-            coffee_beans.src = forSaleCB.src
-            //grey out item
+
+        if (moneyEarned >= 3000) { //test
+
+            text.classList.add('shrink');
+            text.innerText = 'Confirm purchase with ENTER. SPACE to cancel';
+
+            document.onkeydown = function confirm(key) {
+
+                if (key.keyCode == 13) {
+                    
+                    coffee_beans.src = forSaleCB.src
+                    forSaleCB.classList.add('bought');
+                    forSaleCB.classList.remove('unavailable');
+                    text.innerText = 'Item Purchased';
+                    moneyEarned -= 3000;
+                    forSaleCB.removeEventListener('click', coffeeBeans);
+
+                }else if(key.keyCode == 32){
+                    text.innerText = 'Purchase Cancelled';
+                }
+
+            }
 
         }else {
-            //flash red
+
+            text.innerText = 'Not Enough G'
+            forSaleCB.classList.add('unavailable');
         }
+
     }
 
-    function coffee() {
-        if (moneyEarned = (500 + 'G')) {
-            coffee.src = forSaleC.src
-            //grey out item
-            
+    function coffeeMug() {
+
+        if (moneyEarned >= 500) { //test
+
+            text.classList.add('shrink');
+            text.innerText = 'Confirm purchase with ENTER. SPACE to cancel';
+
+            document.onkeydown = function confirm(key) {
+
+                if (key.keyCode == 13) {
+                    
+                    coffee_mug.src = forSaleC.src
+                    forSaleC.classList.add('bought');
+                    forSaleC.classList.remove('unavailable');
+                    text.innerText = 'Item Purchased';
+                    moneyEarned -= 3000;
+                    forSaleC.removeEventListener('click', coffeeBeans);
+
+                }else if(key.keyCode == 32){
+                    text.innerText = 'Purchase Cancelled';
+                }
+
+            }
+
         }else {
-            //flash red
+
+            text.innerText = 'Not Enough G'
+            forSaleC.classList.add('unavailable');
         }
+
     }
+
+    gameBtn.addEventListener('click', gobackST)
 
     function gobackST() {
-        background.removeChild(forSaleCM);
-        background.removeChild(forSaleCB);
-        background.removeChild(forSaleC);
+        text.className = '';
+        gameBtn.className = '';
+        storeBtn.className = '';
+        gameBtn.style.display = 'block'
+        storeSetup.style.display = 'none';
+        storeBtn.removeEventListener('click', gobackST)
+        document.querySelectorAll('#level_select').forEach(function(level_select) {
+            level_select.style.display = 'block';
+        });
+        levelSelect()
     }
 
 }

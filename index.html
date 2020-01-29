@@ -11,7 +11,7 @@
 
 <body>
 
-    <img id="background" class="img-responsive background" src="" alt="">
+    <img id="background" class="background" src="" alt="">
 
     <div class="container">
 
@@ -27,12 +27,16 @@
 
         <div class="row barista" id="barista">
 
+            <!-- Boy -->
             <div class="col-sm-6">
+                <img class='b_boy' src="media/barista_boy[headshot].png">
                 <div class="b_boy_name" id="BB_name">Ka Fei</div>
 
             </div>
 
+            <!-- Girl -->
             <div class="col-sm-6">
+                <img class='b_girl' src="media/barista_girl[headshot].png">
                 <div class="b_girl_name" id="BG_name">Buna</div> 
             </div>
 
@@ -47,8 +51,8 @@
                 <h2>Level 1: Latte</h2>
 
                 <ul id="level_One">
-                    <li id="level_One_Easy"></li>
-                    <li id="level_One_Hard"></li>
+                    <li id="level_One_Easy">[Easy]..........Free</li>
+                    <li id="level_One_Hard">[Hard]..........10 Cups; 30G</li>
                 </ul>
 
             </div>
@@ -58,8 +62,8 @@
                 <h2>Level 2: Cappuccino</h2>
 
                 <ul id="level_Two">
-                    <li id="level_Two_Easy"></li>
-                    <li id="level_Two_Hard"></li>
+                    <li id="level_Two_Easy">[Easy]..........25 Cups; 100G</li>
+                    <li id="level_Two_Hard">[Hard]..........45 Cups; 300G</li>
                 </ul>
                 
             </div>
@@ -69,8 +73,8 @@
                 <h2>Level 3: Mocha</h2>
 
                 <ul id="level_Three">
-                    <li id="level_Three_Easy"></li>
-                    <li id="level_Three_Hard"></li>
+                    <li id="level_Three_Easy">[Easy]..........70 Cups; 500G</li>
+                    <li id="level_Three_Hard">[Hard]..........100 Cups; 800G</li>
                 </ul>
 
             </div>
@@ -84,8 +88,8 @@
                 <h2>Level 4: Americano</h2>
 
                 <ul id="level_Four">
-                    <li id="level_Four_Easy"></li>
-                    <li id="level_Four_Hard"></li>
+                    <li id="level_Four_Easy">[Easy]..........135 Cups; 10000G</li>
+                    <li id="level_Four_Hard">[Hard]..........175 Cups; 20000G</li>
                 </ul>
 
             </div>
@@ -96,8 +100,8 @@
                 <h2>Level 5: Expresso</h2>
 
                 <ul id="level_Five">
-                    <li id="level_Five_Easy"></li>
-                    <li id="level_Five_Hard"></li>
+                    <li id="level_Five_Easy">[Easy]..........220 Cups; 30000G</li>
+                    <li id="level_Five_Hard">[Hard]..........320 Cups; 40000G</li>
                 </ul>
 
             </div>
@@ -112,21 +116,39 @@
                 
                 <ul>
                     <li>Sales: <span id='coffeeSold'></span> cups</li>
-                    <li>Money: <span id='money'></span>G</li>
+                    <li>Money: <span id="money"></span>G</li>
                 </ul>
 
             </div>
 
         </div>
 
-        <div class="row level_select store" id="level_select">
+        <div class="row store" id="storeBtn">
 
             <div class="col-sm-12">
 
-                <h2 id="store">Store</h2>
+                <h2 class="storeBtn"></h2>
 
             </div>
 
+        </div>
+
+        <div class="row store" id="store">
+            <div class="col-sm-12">
+
+                <!-- Cash Available -->
+                <h2 class="moneyAvailable">Money: <span id="moneyAvailable"></span>G </h2>
+               
+                <!-- Coffee Machine -->
+                <img class="coffeeMachine" src="media/coffee-machine3000.png" id="coffeeMachine">
+
+                <!-- Coffee Beans -->
+                <img class="coffeeBeans" src="media/coffee-bag.png" id="coffeeBeans">
+
+                <!-- Mug -->
+                <img class="mug" src="media/mocha.png" id="mug">
+
+            </div>
         </div>
 
         <!-- Cafe Elements -->
