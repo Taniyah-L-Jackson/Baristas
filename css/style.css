@@ -49,7 +49,6 @@ body {
     font-size: 60px;
     animation-name: fade-in;
     animation-duration: 2s;
-    animation-delay: 1s;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
     opacity: 0;
@@ -69,7 +68,7 @@ body {
     font-size: 30px;
     animation-name: fade-in;
     animation-duration: 2s;
-    animation-delay: 3s;
+    animation-delay: 1s;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
     opacity: 0;
@@ -360,6 +359,7 @@ li:hover {
 
 .level {
     position: relative;
+    display: none;
 }
 
 .level img {
@@ -473,5 +473,79 @@ li:hover {
     z-index: 1;
 }
 
+/* Loading Screen */
+
+.fadeBackClass {
+    position: relative;
+    top: -570px;
+    left: 317px;
+    height: 500px;
+    width: 500px;
+    animation-name: fade-in;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    opacity: 0;
+    display: none;
+}
+
+.l_CupClass {
+    position: absolute;
+    background: url(../media/coffeeCup.png);
+    height: 512px;
+    width: 512px;
+    top: -12px;
+    left: 7px;
+    display: none;
+}
+
+.l_SteamClass {
+    position: absolute;
+    background: url(../media/coffeeSteam.png);
+    background-size: 300px 300px;
+    height: 290px;
+    width: 300px;
+    top: -44px;
+    left: 80px;
+    animation-name: steaming;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0.2;
+    display: none;
+}
+
+.l_WordsClass {
+    position: absolute;
+    top: 300px;
+    left: 150px;
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    color: rgb(78, 38, 9);
+    animation-name: slowBlink;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    opacity: 0;
+    display: none;
+}
+
+@keyframes fade-in {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes steaming {
+    100% {
+        background-position: 0px -408px;
+    }
+}
+
+@keyframes slowBlink {
+    100% {
+        opacity: 1;
+    }
+}
 
 /* Icons made by <a href="https://www.flaticon.com/" from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> */

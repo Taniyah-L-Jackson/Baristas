@@ -454,6 +454,12 @@ function gamePlay() {
     if (stillPlaying) {
         game_end = false;
 
+        //reset bar for second gameplay
+        if (fill_bar_inner.style.height != (280 + 'px') || bar != 280) { 
+            fill_bar_inner.style.height = 280 + 'px';
+            bar = 280
+        }
+
         //Timer Function
         let timers = [4, 30]
         var t1 = setInterval(timer, 1000)
@@ -516,10 +522,6 @@ function gamePlay() {
         document.querySelectorAll('#level_select').forEach(function(level_select) {
             level_select.style.display = 'block';
         });
-        //reset bar for second gameplay
-        if (fill_bar_inner.style.height != (280 + 'px')) { 
-            fill_bar_inner.style.height = 280 + 'px';
-        }
         levelSelect();
     }
 
@@ -759,11 +761,6 @@ function store() {
     }
 
 }
-
-// function start(params) {
-    
-// }
-// context.drawImage(sprite, x, y, width, height)
 
 //character selection and start screen function:
 //set canvas to a slow pan of a bar animation

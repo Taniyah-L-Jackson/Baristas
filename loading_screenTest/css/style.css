@@ -1,0 +1,68 @@
+.fadeBackC {
+    position: relative;
+    top: 50px;
+    left: 400px;
+    height: 500px;
+    width: 500px;
+    animation-name: fade-in;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    opacity: 0;
+}
+
+.l_CupC {
+    position: absolute;
+    background: url(../media/coffeeCup.png);
+    height: 512px;
+    width: 512px;
+    top: -12px;
+    left: 7px;
+}
+
+.l_SteamC {
+    position: absolute;
+    background: url(../media/coffeeSteam.png);
+    background-size: 300px 300px;
+    height: 248px;
+    width: 300px;
+    top: 0px;
+    left: 80px;
+    animation-name: steaming;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0.2;
+}
+
+.l_WordsC {
+    position: absolute;
+    top: 300px;
+    left: 150px;
+    font-size: 50px;
+    color: rgb(78, 38, 9);
+    animation-name: slowBlink;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    opacity: 0;
+}
+
+@keyframes fade-in {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes steaming {
+    100% {
+        background-position: 0px -408px;
+    }
+}
+
+@keyframes slowBlink {
+    100% {
+        opacity: 1;
+    }
+}
+
