@@ -1,19 +1,65 @@
 //Game BG and Overlay
 var background = document.getElementById('background');
 var text = document.getElementById('text');
+var gameCon = document.getElementById('gameCon')
 var gameBtn = document.getElementById('game');
 //------------------------------------------------
 
+//function names 
+var functions = intro; //makes loading screen call functions anonymously
+function loading() {window.onload()}
+//------------------------------------------------
+
+//loading
+window.onload = function ready() {
+
+    if (document.readyState == 'complete'){
+
+        gameCon.style.display = 'none';
+        let fadeBack = document.getElementById('fadeBack')
+        let loadCup = document.getElementById('loadCup');
+        let loadSteam = document.getElementById('loadSteam');
+        let loadWords = document.getElementById('loadWords');
+
+        background.src = 'media/loadingScreen.png';
+        fadeBack.style.display = 'block';
+        loadCup.style.display = 'block';
+        loadSteam.style.display = 'block';
+        loadWords.style.display = 'block';
+
+      
+        setTimeout( function () {
+
+            gameCon.style.display = 'block';
+            fadeBack.style.display = 'none';
+            loadCup.style.display = 'none';
+            loadSteam.style.display = 'none';
+            loadWords.style.display = 'none';
+            functions();
+    
+        }, 3000);
+
+    } else {
+        
+      document.addEventListener('DOMContentLoaded', ready);
+
+    }
+  
+}
+
+//for Title Screen function
+var titleScreen = document.getElementById('titleScreen');
+
 //Title Screen function
 function intro() {
-
-    text.innerText = "Casual Baristas"
     background.src = 'media/title_screen.jpg'
+    titleScreen.style.display = 'block';
+    text.innerText = "Casual Baristas"
     gameBtn.innerText = 'Click to Begin';
     gameBtn.addEventListener('click', characterSelection);
 
 }
-intro();
+// intro();
 //-----------------------------------------------
 //--------------------------------------------
 
@@ -53,7 +99,8 @@ function characterSelection() {
             baristaStore.push('female');
         }
 
-        levelSelect();
+        functions = levelSelect //change function called
+        loading()
     }
 
 }
@@ -179,7 +226,8 @@ function levelSelect() {
             case ("level_One_Easy"):
 
                 changeBGLVL = 'media/coffee_wall.png';
-                gamePlay();
+                functions = gamePlay
+                loading();
                 break;
 
             case ("level_One_Hard"):
@@ -193,7 +241,9 @@ function levelSelect() {
                     coffeeSold -= 10
                     moneyEarned -= 30
                     
-                    gamePlay() //activate gamePlay
+                    functions = gamePlay
+                    loading();
+                    
                 }else {
                     this.classList.add('unavailable')
                 }
@@ -213,7 +263,8 @@ function levelSelect() {
                     coffeeSold -= 25
                     moneyEarned -= 100
                 
-                    gamePlay() //activate gamePlay
+                    functions = gamePlay
+                    loading();
         
                 }else {
                     this.classList.add('unavailable')
@@ -232,7 +283,8 @@ function levelSelect() {
                     coffeeSold -= 45
                     moneyEarned -= 300
 
-                    gamePlay() //activate gamePlay
+                    functions = gamePlay
+                    loading();
         
                 }else {
                     this.classList.add('unavailable')
@@ -253,7 +305,8 @@ function levelSelect() {
                     coffeeSold -= 70
                     moneyEarned -= 500
                 
-                    gamePlay() //activate gamePlay
+                    functions = gamePlay
+                    loading();
         
                 }else {
                     this.classList.add('unavailable')
@@ -272,7 +325,8 @@ function levelSelect() {
                     coffeeSold -= 100
                     moneyEarned -= 800
                 
-                    gamePlay() //activate gamePlay
+                    functions = gamePlay
+                    loading();
         
                 }else {
                     this.classList.add('unavailable')
@@ -293,7 +347,8 @@ function levelSelect() {
                     coffeeSold -= 135
                     moneyEarned -= 10000
                 
-                    gamePlay() //activate gamePlay
+                    functions = gamePlay
+                    loading();
         
                 }else {
                     this.classList.add('unavailable')
@@ -312,7 +367,8 @@ function levelSelect() {
                     coffeeSold -= 175
                     moneyEarned -= 20000
                 
-                    gamePlay() //activate gamePlay
+                    functions = gamePlay
+                    loading();
         
                 }else {
                     this.classList.add('unavailable')
@@ -333,7 +389,8 @@ function levelSelect() {
                     coffeeSold -= 220
                     moneyEarned -= 30000
                 
-                    gamePlay() //activate gamePlay
+                    functions = gamePlay
+                    loading();
         
                 }else {
                     this.classList.add('unavailable')
@@ -352,7 +409,8 @@ function levelSelect() {
                     coffeeSold -= 320
                     moneyEarned -= 40000
                 
-                    gamePlay() //activate gamePlay
+                    functions = gamePlay
+                    loading();
         
                 }else {
                     this.classList.add('unavailable')
@@ -363,6 +421,8 @@ function levelSelect() {
         }
 
     }
+
+
 
 }
 
@@ -376,7 +436,8 @@ function goBackLS() {
     });
     barista.style.display = 'block';
     storeBtn.style.display = 'none';
-    characterSelection();
+    functions = characterSelection
+    loading();
 }
 
 //--------------------------------------------
@@ -522,7 +583,8 @@ function gamePlay() {
         document.querySelectorAll('#level_select').forEach(function(level_select) {
             level_select.style.display = 'block';
         });
-        levelSelect();
+        functions = levelSelect
+        loading();
     }
 
 }
