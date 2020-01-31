@@ -253,7 +253,7 @@ function levelSelect() {
                     loading();
                     
                 }else {
-                    this.classList.add('unavailable')
+                    this.classList.add('unavailable');
                 }
                 break;
 
@@ -272,7 +272,7 @@ function levelSelect() {
                     loading();
         
                 }else {
-                    this.classList.add('unavailable')
+                    this.classList.add('unavailable');
                 }
                 break;
 

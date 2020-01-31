@@ -198,7 +198,7 @@ li:hover {
     margin-top: 230px;
 }
 
-.unavailable:hover {
+.unavailable:active {
     color: red;
     animation-name: error;
     animation-duration: 0.5s;
