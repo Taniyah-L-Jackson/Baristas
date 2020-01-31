@@ -45,7 +45,6 @@ window.onload = function ready() {
             loadCup.style.display = 'none';
             loadSteam.style.display = 'none';
             loadWords.style.display = 'none';
-            audio.autoplay = true;
             functions();
 
     
@@ -607,6 +606,7 @@ function gamePlay() {
 
 //For Pour Function
 var fill_bar_inner = document.getElementById('fill');
+var pointUp = document.getElementById('pointUp');
 
 var fill = 10
 var coffeeSold = 0
@@ -616,8 +616,9 @@ var moneyEarned = 0
 function pour(key) {
 
     if (!game_end) {
-
+        
         pourFx.style.display = 'block';
+        pointUp.innerText = '';
         
         if (key != undefined || window.event) {
 
@@ -640,6 +641,7 @@ function pour(key) {
 
         bar = 280;
         fill_bar_inner.style.height = bar + 'px';
+        pointUp.innerText = 'coffeeUp! moneyUp!';
 
         //increase money
         if (coffee_beans.src == 'media/coffee-bag.png') {

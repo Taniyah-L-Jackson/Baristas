@@ -358,6 +358,15 @@ li:hover {
     text-decoration: none;
 }
 
+.pointUp {
+    position: absolute;
+    top: -172px;
+    left: 50px;
+    font-size: 25px;
+    font-family: 'vtks chalk';
+    color: rgb(242, 73, 73);
+}
+
 .level {
     position: relative;
     display: none;
@@ -428,13 +437,13 @@ li:hover {
     height: 500px;
 }
 
-.trigger {
+/* .trigger {
     position: absolute;
     margin-top: -75%;
     height: 200px;
     width: 300px;
     z-index: 1;
-}
+} */
 
 .fill_bar {
     position: relative;
@@ -534,7 +543,7 @@ li:hover {
 
 .explains {
     top: 310px;
-    left: 90px;
+    left: 120px;
     font-size: 40px;
 }
 
