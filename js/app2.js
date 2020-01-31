@@ -10,7 +10,8 @@ var functions = intro; //makes loading screen call functions anonymously
 function loading() {window.onload()} //calls onload function
 
 //For Music and Sounds function
-var audio = document.getElementById("myAudio");
+var audio = new Audio('3763-five-card-shuffle-by-kevin-macleod.mp3');
+audio.play();
 //------------------------------------------------
 
 //loading
