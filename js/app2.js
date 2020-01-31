@@ -9,9 +9,6 @@ var gameBtn = document.getElementById('game');
 var functions = intro; //makes loading screen call functions anonymously
 function loading() {window.onload()} //calls onload function
 
-//For Music and Sounds function
-var audio = new Audio('3763-five-card-shuffle-by-kevin-macleod.mp3');
-audio.play();
 //------------------------------------------------
 
 //loading
@@ -63,18 +60,6 @@ window.onload = function ready() {
 }
 
 //--------------------------------------------------------------
-
-//Music and sounds function
-
-// function togglePlay() {
-//   if (isPlaying) {
-//     myAudio.pause();
-//   } else {
-//     myAudio.autoplay();
-//   }
-// };
-
-//--------------------------------------------------------------
 //--------------------------------------------------------------
 
 //for Title Screen function
@@ -89,7 +74,6 @@ function intro() {
     gameBtn.addEventListener('click', characterSelection);
 
 }
-// intro();
 //-----------------------------------------------
 //--------------------------------------------
 
