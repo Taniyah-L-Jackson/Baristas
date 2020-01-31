@@ -10,7 +10,6 @@ var functions = intro; //makes loading screen call functions anonymously
 function loading() {window.onload()} //calls onload function
 
 //------------------------------------------------
-
 //loading
 window.onload = function ready() {
 
@@ -47,7 +46,6 @@ window.onload = function ready() {
             loadWords.style.display = 'none';
             functions();
 
-    
         }, 3000);
 
     } else {
@@ -250,9 +248,6 @@ function levelSelect() {
                     if (this.classList.contains('unavailable')) {
                         this.classList.remove('unavailable');
                     }
-
-                    coffeeSold -= 10
-                    moneyEarned -= 30
                     
                     functions = gamePlay
                     loading();
@@ -272,9 +267,6 @@ function levelSelect() {
                     if (this.classList.contains('unavailable')) {
                         this.classList.remove('unavailable');
                     }
-
-                    coffeeSold -= 25
-                    moneyEarned -= 100
                 
                     functions = gamePlay
                     loading();
@@ -293,9 +285,6 @@ function levelSelect() {
                         this.classList.remove('unavailable');
                     }
                 
-                    coffeeSold -= 45
-                    moneyEarned -= 300
-
                     functions = gamePlay
                     loading();
         
@@ -314,9 +303,6 @@ function levelSelect() {
                     if (this.classList.contains('unavailable')) {
                         this.classList.remove('unavailable');
                     }
-
-                    coffeeSold -= 70
-                    moneyEarned -= 500
                 
                     functions = gamePlay
                     loading();
@@ -334,9 +320,6 @@ function levelSelect() {
                     if (this.classList.contains('unavailable')) {
                         this.classList.remove('unavailable');
                     }
-
-                    coffeeSold -= 100
-                    moneyEarned -= 800
                 
                     functions = gamePlay
                     loading();
@@ -356,9 +339,6 @@ function levelSelect() {
                     if (this.classList.contains('unavailable')) {
                         this.classList.remove('unavailable');
                     }
-
-                    coffeeSold -= 135
-                    moneyEarned -= 10000
                 
                     functions = gamePlay
                     loading();
@@ -376,9 +356,6 @@ function levelSelect() {
                     if (this.classList.contains('unavailable')) {
                         this.classList.remove('unavailable');
                     }
-
-                    coffeeSold -= 175
-                    moneyEarned -= 20000
                 
                     functions = gamePlay
                     loading();
@@ -399,9 +376,6 @@ function levelSelect() {
                         this.classList.remove('unavailable');
                     }
 
-                    coffeeSold -= 220
-                    moneyEarned -= 30000
-                
                     functions = gamePlay
                     loading();
         
@@ -418,9 +392,6 @@ function levelSelect() {
                     if (this.classList.contains('unavailable')) {
                         this.classList.remove('unavailable');
                     } 
-
-                    coffeeSold -= 320
-                    moneyEarned -= 40000
                 
                     functions = gamePlay
                     loading();
