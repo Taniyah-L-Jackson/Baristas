@@ -200,20 +200,7 @@ li:hover {
 
 .unavailable:active {
     color: red;
-    animation-name: error;
-    animation-duration: 0.5s;
-    animation-iteration-count: 3;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-    opacity: 0;
 }
-
-@keyframes error {
-    100% {
-        opacity: 1;
-    }
-}
-
 
 /* Money and Coffee Served Display */
 
