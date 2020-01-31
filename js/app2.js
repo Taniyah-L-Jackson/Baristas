@@ -5,15 +5,18 @@ var gameCon = document.getElementById('gameCon')
 var gameBtn = document.getElementById('game');
 //------------------------------------------------
 
-//function names 
+//For loading function
 var functions = intro; //makes loading screen call functions anonymously
-function loading() {window.onload()}
+function loading() {window.onload()} //calls onload function
+
+//For Music and Sounds function
+var audio = document.getElementById("myAudio");
 //------------------------------------------------
 
 //loading
 window.onload = function ready() {
 
-    if (document.readyState == 'complete'){
+    if (document.readyState == 'complete'){ //page is fully loaded
 
         gameCon.style.display = 'none';
         let fadeBack = document.getElementById('fadeBack')
@@ -26,16 +29,27 @@ window.onload = function ready() {
         loadCup.style.display = 'block';
         loadSteam.style.display = 'block';
         loadWords.style.display = 'block';
+        loadWords.innerText = 'Loading'
 
+        if (loadWords.classList.contains('explains')) {
+            loadWords.classList.remove('explains');
+        }
+
+        if (functions == gamePlay) {
+            loadWords.classList.add('explains');
+            loadWords.innerText = 'USE "SPACE"';
+        }
       
-        setTimeout( function () {
-
+        setTimeout(function () {
+            
             gameCon.style.display = 'block';
             fadeBack.style.display = 'none';
             loadCup.style.display = 'none';
             loadSteam.style.display = 'none';
             loadWords.style.display = 'none';
+            audio.autoplay = true;
             functions();
+
     
         }, 3000);
 
@@ -46,6 +60,21 @@ window.onload = function ready() {
     }
   
 }
+
+//--------------------------------------------------------------
+
+//Music and sounds function
+
+// function togglePlay() {
+//   if (isPlaying) {
+//     myAudio.pause();
+//   } else {
+//     myAudio.autoplay();
+//   }
+// };
+
+//--------------------------------------------------------------
+//--------------------------------------------------------------
 
 //for Title Screen function
 var titleScreen = document.getElementById('titleScreen');
@@ -713,7 +742,7 @@ function store() {
 
     //Sales
     function coffeeMaker() {
-        if (moneyEarned >= 10) { //test
+        if (moneyEarned >= 1000) { //test
 
             text.classList.add('shrink');
             text.innerText = 'Confirm purchase with ENTER. SPACE to cancel';
@@ -790,7 +819,7 @@ function store() {
                     forSaleC.classList.add('bought');
                     forSaleC.classList.remove('unavailable');
                     text.innerText = 'Item Purchased';
-                    moneyEarned -= 3000;
+                    moneyEarned -= 500;
                     forSaleC.removeEventListener('click', coffeeBeans);
 
                 }else if(key.keyCode == 32){
