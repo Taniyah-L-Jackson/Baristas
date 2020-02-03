@@ -263,6 +263,32 @@ li:hover {
     position: absolute;
 }
 
+.price {
+    position: absolute;
+    top: -465px;
+    height: 50px;
+    width: 70px;
+    background: rgb(255, 217, 158);
+    color: red;
+    border: 3px solid black;
+    text-align: center;
+    line-height: 2.5;
+    font-size: 20px;
+}
+
+.CM {
+    left: 115px;
+}
+
+.CB {
+    left: 360px;
+}
+
+.M {
+    top: -300px;
+    left: 590px;
+}
+
 .coffeeMachine {
     top: -413px;
     left: 60px;
@@ -283,6 +309,19 @@ li:hover {
 
 .bought {
     opacity: 0.5;
+}
+
+.cantBuy:hover {
+    animation-name: flash;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 2;
+}
+
+@keyframes flash {
+    100% {
+        opacity: 0.5;
+    }
 }
 
 /* Store Back Btn */
@@ -306,7 +345,7 @@ li:hover {
     text-decoration: underline;
 }
 
-/* back button */
+/* level select back button */
 .backBtnLS {
     position: absolute;
     top: -140px;
@@ -432,6 +471,8 @@ li:hover {
 .marginTop {
     margin-top: -8%;
 }
+
+/* game play back button */
 
 .backBtnGP {
     position: absolute;

@@ -252,6 +252,10 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
                     
+                }else {
+
+                    this.classList.add('unavailable')
+
                 }
 
                 break;
@@ -270,6 +274,10 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
+                }else {
+
+                    this.classList.add('unavailable')
+
                 }
 
                 break;
@@ -286,6 +294,10 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
+                }else {
+
+                    this.classList.add('unavailable')
+
                 }
 
                 break
@@ -304,6 +316,10 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
+                }else {
+
+                    this.classList.add('unavailable')
+
                 }
 
                 break;
@@ -320,6 +336,10 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
+                }else {
+
+                    this.classList.add('unavailable')
+
                 }
 
                 break;
@@ -338,6 +358,10 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
+                }else {
+
+                    this.classList.add('unavailable')
+
                 }
 
                 break;
@@ -354,6 +378,10 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
+                }else {
+
+                    this.classList.add('unavailable')
+
                 }
 
                 break;
@@ -372,6 +400,10 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
+                }else {
+
+                    this.classList.add('unavailable')
+
                 }
 
                 break;
@@ -388,16 +420,16 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
+                }else {
+
+                    this.classList.add('unavailable')
+
                 }
                 
                 break;
-        
-            
         }
 
     }
-
-
 
 }
 
@@ -642,6 +674,11 @@ var storeBtn = document.getElementById('storeBtn');
 var storeSetup = document.getElementById('store');
 var moneyAvailable = document.getElementById('moneyAvailable');
 
+//price tags
+var CMTag = document.getElementById('CM');
+var CBTag = document.getElementById('CB');
+var MTag = document.getElementById('M');
+
 //Store function
 function store() {
 
@@ -693,7 +730,8 @@ function store() {
 
     //Sales
     function coffeeMaker() {
-        if (moneyEarned >= 1000) { //test
+        
+        if (moneyEarned >= 2500) { //test
 
             text.classList.add('shrink');
             text.innerText = 'Confirm purchase with ENTER. SPACE to cancel';
@@ -704,10 +742,11 @@ function store() {
                     
                     coffee_maker.src = forSaleCM.src //change the item
                     forSaleCM.classList.add('bought');//grey out item
-                    forSaleCM.classList.remove('unavailable');
+                    forSaleCM.classList.remove('cantBuy');
                     text.innerText = 'Item Purchased';
-                    moneyEarned -= 1000;
+                    moneyEarned -= 2500;
                     forSaleCM.removeEventListener('click', coffeeMaker);
+                    CMTag.classList.add('bought');
 
                 }else if(key.keyCode == 32){
                     text.innerText = 'Purchase Cancelled';
@@ -718,14 +757,14 @@ function store() {
         }else {
 
             text.innerText = 'Not Enough G'
-            forSaleCM.classList.add('unavailable');
+            forSaleCM.classList.add('cantBuy');
         }
         
     }
 
     function coffeeBeans() {
 
-        if (moneyEarned >= 3000) { //test
+        if (moneyEarned >= 1000) { //test
 
             text.classList.add('shrink');
             text.innerText = 'Confirm purchase with ENTER. SPACE to cancel';
@@ -736,10 +775,11 @@ function store() {
                     
                     coffee_beans.src = forSaleCB.src
                     forSaleCB.classList.add('bought');
-                    forSaleCB.classList.remove('unavailable');
+                    forSaleCB.classList.remove('cantBuy');
                     text.innerText = 'Item Purchased';
-                    moneyEarned -= 3000;
+                    moneyEarned -= 1000;
                     forSaleCB.removeEventListener('click', coffeeBeans);
+                    CBTag.classList.add('bought');
 
                 }else if(key.keyCode == 32){
                     text.innerText = 'Purchase Cancelled';
@@ -750,7 +790,7 @@ function store() {
         }else {
 
             text.innerText = 'Not Enough G'
-            forSaleCB.classList.add('unavailable');
+            forSaleCB.classList.add('cantBuy');
         }
 
     }
@@ -768,10 +808,11 @@ function store() {
                     
                     coffee_mug.src = forSaleC.src
                     forSaleC.classList.add('bought');
-                    forSaleC.classList.remove('unavailable');
+                    forSaleC.classList.remove('cantBuy');
                     text.innerText = 'Item Purchased';
                     moneyEarned -= 500;
                     forSaleC.removeEventListener('click', coffeeBeans);
+                    CTag.classList.add('bought');
 
                 }else if(key.keyCode == 32){
                     text.innerText = 'Purchase Cancelled';
@@ -782,7 +823,7 @@ function store() {
         }else {
 
             text.innerText = 'Not Enough G'
-            forSaleC.classList.add('unavailable');
+            forSaleC.classList.add('cantBuy');
         }
 
     }
