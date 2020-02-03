@@ -252,9 +252,8 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
                     
-                }else {
-                    this.classList.add('unavailable');
                 }
+
                 break;
 
             case ("level_Two_Easy"):
@@ -271,9 +270,8 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
-                }else {
-                    this.classList.add('unavailable');
                 }
+
                 break;
 
             case ("level_Two_Hard"):
@@ -288,9 +286,8 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
-                }else {
-                    this.classList.add('unavailable')
                 }
+
                 break
 
             case ("level_Three_Easy"):
@@ -307,9 +304,8 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
-                }else {
-                    this.classList.add('unavailable')
-                }                
+                }
+
                 break;
 
             case ("level_Three_Hard"):
@@ -324,9 +320,8 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
-                }else {
-                    this.classList.add('unavailable')
                 }
+
                 break;
 
             case ("level_Four_Easy"):
@@ -343,9 +338,8 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
-                }else {
-                    this.classList.add('unavailable')
                 }
+
                 break;
 
             case ("level_Four_Hard"):
@@ -360,9 +354,8 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
-                }else {
-                    this.classList.add('unavailable')
                 }
+
                 break;
 
             case ("level_Five_Easy"):
@@ -379,9 +372,8 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
-                }else {
-                    this.classList.add('unavailable')
                 }
+
                 break;
 
             case ("level_Five_Hard"):
@@ -396,9 +388,8 @@ function levelSelect() {
                     functions = gamePlay
                     loading();
         
-                }else {
-                    this.classList.add('unavailable')
                 }
+                
                 break;
         
             
@@ -495,6 +486,9 @@ function gamePlay() {
     //--storeBtn
     storeBtn.style.display = 'none';
 
+    //Timer Function
+    var timers = [4, 30]
+
     //Force Stop timer For back button
     if (stillPlaying) {
         game_end = false;
@@ -505,8 +499,6 @@ function gamePlay() {
             bar = 280
         }
 
-        //Timer Function
-        let timers = [4, 30]
         var t1 = setInterval(timer, 1000)
 
         function timer() {
@@ -520,7 +512,7 @@ function gamePlay() {
 
             if (timers[0] == 0) {
 
-                document.onkeydown = pour;
+                document.onkeyup = pour;
 
                 if (timers[1] >= 25) {
 
@@ -542,6 +534,7 @@ function gamePlay() {
                     pourFx.style.display = 'none';
                     game_end = true
                     clearInterval(t1);
+                    document.onkeyup = null;
 
                 }
 
@@ -560,7 +553,7 @@ function gamePlay() {
         playerPosePour.className = '';
         level.style.display = 'none';
         pourFx.style.display = 'none';
-        document.onkeydown = null; //stop the keydown
+        document.onkeyup = null; //stop the keydown
         stillPlaying = false;
         game_end = true;
         clearInterval(t1);

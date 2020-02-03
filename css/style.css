@@ -22,20 +22,7 @@ body {
     border: 30px ridge wheat;
 }
 
-/* .BG_animation {
-    background-repeat: repeat-x;
-    border: 4px solid black;
-    animation-name: moveBG;
-    animation-duration: 10s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;   
-}
-
-@keyframes moveBG {
-    100% {
-        background-position-x: 100%;
-    }
-} */
+/* titleScreen */
 
 .titleScreen {
     display: none;
@@ -298,8 +285,6 @@ li:hover {
     opacity: 0.5;
 }
 
-
-
 /* Store Back Btn */
 
 .backBtnST {
@@ -424,13 +409,6 @@ li:hover {
     height: 500px;
 }
 
-/* .trigger {
-    position: absolute;
-    margin-top: -75%;
-    height: 200px;
-    width: 300px;
-    z-index: 1;
-} */
 
 .fill_bar {
     position: relative;
@@ -550,11 +528,6 @@ li:hover {
     100% {
         opacity: 1;
     }
-}
-
-/* Music and sounds */
-.audio {
-    display:none
 }
 
 /* Icons made by <a href="https://www.flaticon.com/" from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> */
