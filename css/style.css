@@ -182,11 +182,19 @@ li:hover {
 }
 
 .down {
-    margin-top: 230px;
+    margin-top: 200px;
 }
 
 .unavailable:active {
     color: red;
+}
+
+.completed:active {
+    color: green;
+}
+
+.gameComplete {
+    color: rgb(150, 128, 0);
 }
 
 /* Money and Coffee Served Display */
