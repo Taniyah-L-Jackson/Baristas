@@ -189,8 +189,11 @@ li:hover {
     color: red;
 }
 
-.completed:active {
-    color: green;
+.star {
+    position: absolute;
+    height: 30px;
+    top: 65px;
+    left: 250px;
 }
 
 .gameComplete {
@@ -224,6 +227,7 @@ li:hover {
 }
 
 /* Store */
+
 .storeBtn {
     position: absolute;
     top: 65px;
@@ -354,6 +358,7 @@ li:hover {
 }
 
 /* level select back button */
+
 .backBtnLS {
     position: absolute;
     top: -140px;
@@ -369,6 +374,7 @@ li:hover {
 }
 
 /* gameplay layout */
+
 .gameplayTitle {
     color: white;
     font-family: "Times New Roman";
@@ -444,6 +450,7 @@ li:hover {
 }
 
 /*gameplay characters*/
+
 .characterPos_male {
     top: -532px;
     left: 196px;

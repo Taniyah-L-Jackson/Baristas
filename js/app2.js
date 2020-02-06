@@ -195,7 +195,20 @@ function levelSelect() {
     lvlFiveEasy.addEventListener('click', playable);
     lvlFiveHard.addEventListener('click', playable);
 
+    //star function
+    //--elements to use
+    let star = document.querySelectorAll('#completed'); //add stars to span tags
+    let listComplete = [];
+    for (let i = 0; i < star.length; i++) { //store elements in list
+        listComplete.push(star[i])
+    }
     
+    //--image
+    let starImg = new Image();
+    starImg.classList.add('star');
+    starImg.src = 'media/shine.png';
+    starComp();
+
     //playable function for locked levels
     function playable() {
         
@@ -207,7 +220,7 @@ function levelSelect() {
                     
                     changeBGLVL = 'media/coffee_wall.png';
                     functions = gamePlay;
-                    loading();   
+                    loading(); 
 
                 }
 
@@ -215,54 +228,41 @@ function levelSelect() {
 
             case ("level_One_Hard"):
 
-                if (coffeeSold >= lvlOneHard.value) { //lock level
+                if (gamelvl == 'level1H') {
+                    
+                    if (this.classList.contains('unavailable')) {
 
-                    gamelvl = 'level1H';
-                    lvlOneEasy.classList.add('completed');
-
-                    if (coffeeSold >= lvlOneHard.value && gamelvl == 'level1H') {
-                        
-                        if (this.classList.contains('unavailable')) {
-                            this.classList.remove('unavailable');
-                        }
-
-                        functions = gamePlay;
-                        loading();
-                        
-                    } else {
-
-                        this.classList.add('unavailable');
-
+                        this.classList.remove('unavailable');
                     }
 
-                }
+                    functions = gamePlay;
+                    loading();
+                    
+                } else {
 
+                    this.classList.add('unavailable');
+
+                }
+                
                 break;
 
             case ("level_Two_Easy"):
 
                 changeBGLVL = 'media/coffee_wall2.png';
 
-                if(coffeeSold >= lvlTwoEasy.value) {
+                if (gamelvl == 'level2E') {
 
-                    gamelvl = 'level2E';
-                    lvlOneHard.classList.add('completed');
-
-                    if (coffeeSold >= lvlTwoEasy.value && gamelvl == 'level2E') {
-
-                        //if the class is there
-                        if (this.classList.contains('unavailable')) {
-                            this.classList.remove('unavailable');
-                        }
-
-                        functions = gamePlay;
-                        loading();
-            
-                    }else {
-
-                        this.classList.add('unavailable');
-
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
                     }
+
+                    functions = gamePlay;
+                    loading();
+        
+                }else {
+
+                    this.classList.add('unavailable');
 
                 }
 
@@ -270,25 +270,18 @@ function levelSelect() {
 
             case ("level_Two_Hard"):
 
-                if(coffeeSold >= lvlTwoHard.value) {
+                if (gamelvl == 'level2H') {
 
-                    gamelvl = 'level2H';
-                    lvlTwoEasy.classList.add('completed');
-
-                    if (coffeeSold >= lvlTwoHard.value && gamelvl == 'level2H') {
-
-                        //if the class is there
-                        if (this.classList.contains('unavailable')) {
-                            this.classList.remove('unavailable');
-                        }
-                        functions = gamePlay;
-                        loading();
-            
-                    }else {
-
-                        this.classList.add('unavailable');
-
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
                     }
+                    functions = gamePlay;
+                    loading();
+        
+                }else {
+
+                    this.classList.add('unavailable');
 
                 }
 
@@ -298,26 +291,19 @@ function levelSelect() {
 
                 changeBGLVL = 'media/coffee_wall3.png';
 
-                if(coffeeSold >= lvlThreeEasy.value) {
+                if (gamelvl == 'level3E') {
 
-                    gamelvl = 'level3E';
-                    lvlTwoHard.classList.add('completed');
-
-                    if (coffeeSold >= lvlThreeEasy.value && gamelvl == 'level3E') {
-
-                        //if the class is there
-                        if (this.classList.contains('unavailable')) {
-                            this.classList.remove('unavailable');
-                        }
-
-                        functions = gamePlay;
-                        loading();
-            
-                    }else {
-
-                        this.classList.add('unavailable');
-
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
                     }
+
+                    functions = gamePlay;
+                    loading();
+        
+                }else {
+
+                    this.classList.add('unavailable');
 
                 }
 
@@ -325,27 +311,21 @@ function levelSelect() {
 
             case ("level_Three_Hard"):
 
-                if(coffeeSold >= lvlThreeHard.value) {
-
-                    gamelvl = 'level3H';
-                    lvlThreeEasy.classList.add('completed');
-
-                    if (coffeeSold >= lvlThreeHard.value && gamelvl == 'level3H') {
-
-                        //if the class is there
-                        if (this.classList.contains('unavailable')) {
-                            this.classList.remove('unavailable');
-                        }
-
-                        functions = gamePlay;
-                        loading();
-            
-                    }else {
-
-                        this.classList.add('unavailable');
-
-                    }
                 
+                if (gamelvl == 'level3H') {
+
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
+                    }
+
+                    functions = gamePlay;
+                    loading();
+        
+                }else {
+
+                    this.classList.add('unavailable');
+
                 }
 
                 break;
@@ -354,26 +334,20 @@ function levelSelect() {
 
                 changeBGLVL = 'media/coffee_wall4.png';
 
-                if(coffeeSold >= lvlFourEasy.value) {
+                
+                if (gamelvl == 'level4E') {
 
-                    gamelvl = 'level4E';
-                    lvlThreeHard.classList.add('completed');
-
-                    if (coffeeSold >= lvlFourEasy.value && gamelvl == 'level4E') {
-
-                        //if the class is there
-                        if (this.classList.contains('unavailable')) {
-                            this.classList.remove('unavailable');
-                        }
-
-                        functions = gamePlay;
-                        loading();
-            
-                    }else {
-
-                        this.classList.add('unavailable');
-
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
                     }
+
+                    functions = gamePlay;
+                    loading();
+        
+                }else {
+
+                    this.classList.add('unavailable');
 
                 }
 
@@ -381,26 +355,19 @@ function levelSelect() {
 
             case ("level_Four_Hard"):
 
-                if(coffeeSold >= lvlFourHard.value) {
+                if (gamelvl == 'level4H') {
 
-                    gamelvl = 'level4H';
-                    lvlFourEasy.classList.add('completed');
-
-                    if (coffeeSold >= lvlFourHard.value && gamelvl == 'level4H') {
-
-                        //if the class is there
-                        if (this.classList.contains('unavailable')) {
-                            this.classList.remove('unavailable');
-                        }
-
-                        functions = gamePlay;
-                        loading();
-            
-                    }else {
-
-                        this.classList.add('unavailable');
-
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
                     }
+
+                    functions = gamePlay;
+                    loading();
+        
+                }else {
+
+                    this.classList.add('unavailable');
 
                 }
 
@@ -409,27 +376,20 @@ function levelSelect() {
             case ("level_Five_Easy"):
 
                 changeBGLVL = 'media/coffee_wall5.png';
-            
-                if(coffeeSold >= lvlFourHard.value) {
 
-                    gamelvl = 'level5E';
-                    lvlFourHard.classList.add('completed');
+                if (gamelvl == 'level5E') {
 
-                    if (coffeeSold >= lvlFiveEasy.value && gamelvl == 'level5E') {
-
-                        //if the class is there
-                        if (this.classList.contains('unavailable')) {
-                            this.classList.remove('unavailable');
-                        }
-
-                        functions = gamePlay;
-                        loading();
-            
-                    }else {
-
-                        this.classList.add('unavailable')
-
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
                     }
+
+                    functions = gamePlay;
+                    loading();
+        
+                }else {
+
+                    this.classList.add('unavailable')
 
                 }
 
@@ -437,57 +397,135 @@ function levelSelect() {
 
             case ("level_Five_Hard"):
 
-                if(coffeeSold >= lvlFiveHard.value) {
+                
+                if (gamelvl == 'level5H') {
 
-                    gamelvl = 'level5H';
-                    lvlFiveEasy.classList.add('completed');
+                    //if the class is there
+                    if (this.classList.contains('unavailable')) {
+                        this.classList.remove('unavailable');
+                    }                         
+                    functions = gamePlay;
+                    loading();
+                    gamelvl = 'Complete!'
+        
+                }else {
 
-                    if (coffeeSold == lvlFiveHard.value && gamelvl == 'level5H') {
-
-                        //if the class is there
-                        if (this.classList.contains('unavailable')) {
-                            this.classList.remove('unavailable');
-                        } 
-
-                        gamelvl = 'Complete!'
-                        functions = gamePlay;
-                        loading();
-            
-                    }else {
-
-                        this.classList.add('unavailable')
-
-                    }
+                    this.classList.add('unavailable')
 
                 }
-                
+       
                 break;
-
-            case ("replay"): 
                 
-                if (gamelvl == 'Complete!' && (lvlFiveHard.value + 10)) {
-
-                    lvlFiveHard.classList.add('completed');                    
-                    levelComp = prompt("Congrats! You're a barista pro now! Do you wish to re-live your journey, or are you done serving? [Turn on Coffee Machine]; [Turn off Coffee Machine]");
-
-                    if (levelComp = 'Turn on Coffee Machine') {
-                        
-                        gamelvl = 'level1E';
-
-                    }else {
-
-                        text.innerText = 'Complete!';
-                        document.querySelectorAll('#level_select').forEach(function(level_select) {
-                            level_select.classList.add('gameComplete');
-                        });
-
-                    }
-                }
         }   
 
     }
 
+    function starComp() {
+
+        if (coffeeSold >= lvlOneHard.value) {
+
+            //lock level and add star
+            gamelvl = 'level1H';
+            lvlOneEasy.style.opacity = '0.5';
+            listComplete[0].appendChild(starImg);
+            return;
+
+        }else if (coffeeSold >= lvlTwoEasy.value) {
+
+            gamelvl = 'level2E';
+            lvlOneHard.style.opacity = '0.5';
+            listComplete[1].appendChild(starImg);
+            return;
+
+        }else if (coffeeSold >= lvlTwoHard.value) {
+            
+            gamelvl = 'level2H';
+            lvlTwoEasy.style.opacity = '0.5';
+            listComplete[2].appendChild(starImg);
+            return;
+
+        }else if (coffeeSold >= lvlThreeEasy.value) {
+            
+            gamelvl = 'level3E';
+            lvlTwoHard.style.opacity = '0.5';
+            listComplete[3].appendChild(starImg);
+            return;
+
+        }else if (coffeeSold >= lvlThreeHard.value) {
+            
+            gamelvl = 'level3H';
+            lvlThreeEasy.style.opacity = '0.5';
+            listComplete[4].appendChild(starImg);
+            return;
+
+        }else if (coffeeSold >= lvlFourEasy.value) {
+            
+            gamelvl = 'level4E';
+            lvlThreeHard.style.opacity = '0.5';
+            listComplete[5].appendChild(starImg);
+            return;
+
+        }else if (coffeeSold >= lvlFourHard.value) {
+
+            gamelvl = 'level4H';
+            lvlFourEasy.style.opacity = '0.5';
+            listComplete[6].appendChild(starImg);
+            return;
+
+        }else if (coffeeSold >= lvlFiveEasy.value) {
+
+            gamelvl = 'level5E';
+            lvlFourHard.style.opacity = '0.5';
+            listComplete[7].appendChild(starImg);
+            return;
+
+        }else if (coffeeSold >= lvlFiveHard.value) {
+            
+            gamelvl = 'level5H';
+            lvlFiveEasy.style.opacity = '0.5';
+            listComplete[8].appendChild(starImg);
+            return;
+
+        }else if (coffeeSold >= (lvlFiveHard.value + 100)) { //make a goal for final level
+            
+            gamelvl = 'complete';
+            return;
+
+        }
+
+        if (gamelvl == 'complete') {
+
+            lvlFiveHard.style.opacity = '0.5';
+            listComplete[9].appendChild(starImg);
+
+            levelComp = prompt("Congrats! You're a barista pro now! Do you wish to re-live your journey, or are you done serving? [Turn on Coffee Machine]; [Turn off Coffee Machine]");
+
+            if (levelComp = 'Turn on Coffee Machine') {
+                
+                gamelvl = 'level1E';
+                for (let i = 0; i < listComplete.length; i++) {
+                
+                    listComplete[i].removeChild(starImg)
+                    
+                    
+                }
+
+            }else {
+
+                text.innerText = 'Complete!';
+                document.querySelectorAll('#level_select').forEach(function(level_select) {
+                    level_select.classList.add('gameComplete');
+                });
+
+            }
+            
+        }
+
+    }
+
 }
+
+
 
 //Back Button function (for above function)
 function goBackLS() {
@@ -644,7 +682,7 @@ function gamePlay() {
         document.onkeyup = null; //stop the keydown
         stillPlaying = false;
         game_end = true;
-        clearInterval(t1);
+        clearInterval(t1); //clear timers
         document.querySelectorAll('#level_select').forEach(function(level_select) {
             level_select.style.display = 'block';
         });
@@ -684,7 +722,6 @@ function pour(key) {
 
             }
 
-
         }
   
     }
@@ -694,6 +731,9 @@ function pour(key) {
         bar = 280;
         fill_bar_inner.style.height = bar + 'px';
         pointUp.innerText = 'coffeeUp! moneyUp!';
+        playerPoseRest.style.display = 'block';
+        playerPosePour.style.display = 'none';
+        pourFx.style.display = 'none';
 
         //increase money
         if (coffee_beans.src == 'media/coffee-bag.png') {
