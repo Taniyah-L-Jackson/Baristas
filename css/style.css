@@ -562,10 +562,14 @@ li:hover {
     display: none;
 }
 
-.explains {
-    top: 310px;
-    left: 120px;
-    font-size: 40px;
+.explainsSp {
+    top: 315px;
+    left: 92px;
+    font-size: 35px;
+}
+
+.explainsRL {
+    color: green;
 }
 
 @keyframes fade-in {

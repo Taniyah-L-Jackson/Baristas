@@ -9,6 +9,9 @@ var gameBtn = document.getElementById('game');
 var functions = intro; //makes loading screen call functions anonymously
 function loading() {window.onload()} //calls onload function
 
+//Button Control Tells for game functions
+var buttons = '';
+
 //------------------------------------------------
 //loading
 window.onload = function ready() {
@@ -28,13 +31,31 @@ window.onload = function ready() {
         loadWords.style.display = 'block';
         loadWords.innerText = 'Loading'
 
-        if (loadWords.classList.contains('explains')) {
-            loadWords.classList.remove('explains');
+        if (loadWords.classList.contains('explainsSp')) {
+
+            loadWords.classList.remove('explainsSP');
+
+        }else if (loadWords.classList.contains('explainsRL')) {
+
+            loadWords.classList.remove('explainsRL');
+            
         }
 
+        //gameplay change
         if (functions == gamePlay) {
-            loadWords.classList.add('explains');
-            loadWords.innerText = 'USE "SPACE"';
+
+            if (buttons == 'explainsSp') {
+
+                loadWords.classList.add('explainsSp');
+                loadWords.innerText = 'BUTTONS: ' + buttons;
+
+            }else if(buttons == 'explainsRL'){
+
+                loadWords.classList.add('explainsRL');
+                loadWords.innerText = 'BUTTONS: ' + buttons;
+
+            }
+
         }
       
         setTimeout(function () {
@@ -126,6 +147,8 @@ var record = [coffeeSold, moneyEarned]
 var changeBGLVL = ''
 var gamelvl = 'level1E'; //first level
 var levelComp = ''; //shown upon completed game run
+var lvlNm = ''; //level name
+  
 
 //Level Select 
 function levelSelect() {
@@ -219,6 +242,8 @@ function levelSelect() {
                 if (gamelvl == 'level1E') {
                     
                     changeBGLVL = 'media/coffee_wall.png';
+                    lvlNm = '1-1';
+                    buttons = 'SPACE'; //tells what buttons to press
                     functions = gamePlay;
                     loading(); 
 
@@ -235,6 +260,8 @@ function levelSelect() {
                         this.classList.remove('unavailable');
                     }
 
+                    lvlNm = '1-2';
+                    buttons = 'RIGHT, LEFT';
                     functions = gamePlay;
                     loading();
                     
@@ -257,6 +284,8 @@ function levelSelect() {
                         this.classList.remove('unavailable');
                     }
 
+                    lvlNm = '2-1';
+                    buttons = 'SPACE';
                     functions = gamePlay;
                     loading();
         
@@ -276,6 +305,9 @@ function levelSelect() {
                     if (this.classList.contains('unavailable')) {
                         this.classList.remove('unavailable');
                     }
+
+                    lvlNm = '2-2';
+                    buttons = 'RIGHT, LEFT';
                     functions = gamePlay;
                     loading();
         
@@ -298,6 +330,8 @@ function levelSelect() {
                         this.classList.remove('unavailable');
                     }
 
+                    lvlNm = '3-1';
+                    buttons = 'SPACE';
                     functions = gamePlay;
                     loading();
         
@@ -319,6 +353,8 @@ function levelSelect() {
                         this.classList.remove('unavailable');
                     }
 
+                    lvlNm = '3-2';
+                    buttons = 'RIGHT, LEFT';
                     functions = gamePlay;
                     loading();
         
@@ -342,6 +378,8 @@ function levelSelect() {
                         this.classList.remove('unavailable');
                     }
 
+                    lvlNm = '4-1';
+                    buttons = 'SPACE';
                     functions = gamePlay;
                     loading();
         
@@ -362,6 +400,8 @@ function levelSelect() {
                         this.classList.remove('unavailable');
                     }
 
+                    lvlNm = '4-2';
+                    buttons = 'RIGHT, LEFT';
                     functions = gamePlay;
                     loading();
         
@@ -384,6 +424,8 @@ function levelSelect() {
                         this.classList.remove('unavailable');
                     }
 
+                    lvlNm = '5-1';
+                    buttons = 'SPACE';
                     functions = gamePlay;
                     loading();
         
@@ -403,10 +445,12 @@ function levelSelect() {
                     //if the class is there
                     if (this.classList.contains('unavailable')) {
                         this.classList.remove('unavailable');
-                    }                         
+                    } 
+                    
+                    lvlNm = 'Final';
+                    buttons = 'WASD';
                     functions = gamePlay;
                     loading();
-                    gamelvl = 'Complete!'
         
                 }else {
 
@@ -426,63 +470,54 @@ function levelSelect() {
 
             //lock level and add star
             gamelvl = 'level1H';
-            lvlOneEasy.style.opacity = '0.5';
             listComplete[0].appendChild(starImg);
             return;
 
         }else if (coffeeSold >= lvlTwoEasy.value) {
 
             gamelvl = 'level2E';
-            lvlOneHard.style.opacity = '0.5';
             listComplete[1].appendChild(starImg);
             return;
 
         }else if (coffeeSold >= lvlTwoHard.value) {
             
             gamelvl = 'level2H';
-            lvlTwoEasy.style.opacity = '0.5';
             listComplete[2].appendChild(starImg);
             return;
 
         }else if (coffeeSold >= lvlThreeEasy.value) {
             
             gamelvl = 'level3E';
-            lvlTwoHard.style.opacity = '0.5';
             listComplete[3].appendChild(starImg);
             return;
 
         }else if (coffeeSold >= lvlThreeHard.value) {
             
             gamelvl = 'level3H';
-            lvlThreeEasy.style.opacity = '0.5';
             listComplete[4].appendChild(starImg);
             return;
 
         }else if (coffeeSold >= lvlFourEasy.value) {
             
             gamelvl = 'level4E';
-            lvlThreeHard.style.opacity = '0.5';
             listComplete[5].appendChild(starImg);
             return;
 
         }else if (coffeeSold >= lvlFourHard.value) {
 
             gamelvl = 'level4H';
-            lvlFourEasy.style.opacity = '0.5';
             listComplete[6].appendChild(starImg);
             return;
 
         }else if (coffeeSold >= lvlFiveEasy.value) {
 
             gamelvl = 'level5E';
-            lvlFourHard.style.opacity = '0.5';
             listComplete[7].appendChild(starImg);
             return;
 
         }else if (coffeeSold >= lvlFiveHard.value) {
             
             gamelvl = 'level5H';
-            lvlFiveEasy.style.opacity = '0.5';
             listComplete[8].appendChild(starImg);
             return;
 
@@ -495,7 +530,6 @@ function levelSelect() {
 
         if (gamelvl == 'complete') {
 
-            lvlFiveHard.style.opacity = '0.5';
             listComplete[9].appendChild(starImg);
 
             levelComp = prompt("Congrats! You're a barista pro now! Do you wish to re-live your journey, or are you done serving? [Turn on Coffee Machine]; [Turn off Coffee Machine]");
@@ -507,15 +541,11 @@ function levelSelect() {
                 
                     listComplete[i].removeChild(starImg)
                     
-                    
                 }
 
             }else {
 
                 text.innerText = 'Complete!';
-                document.querySelectorAll('#level_select').forEach(function(level_select) {
-                    level_select.classList.add('gameComplete');
-                });
 
             }
             
@@ -559,6 +589,48 @@ var coffee_maker = document.getElementById('coffee_maker');
 var coffee_beans = document.getElementById('coffee_beans');
 var coffee_mug = document.getElementById('coffee');
 
+//Level Settings
+var lvlSetn = ''; //fires functions based on level difficulty
+function lvlMode() {
+
+    easyMode = ['level1E', 'level2E', 'level3E', 'level4E', 'level5E']
+    hardMode = ['level1H', 'level2H', 'level3H', 'level4H']
+    ultiMode = 'ultimate'
+
+    for (let i = 0; i < easyMode.length; i++) {
+        
+        if (gamelvl == easyMode[i]) {
+            
+            lvlSetn = pourH;
+            return;
+
+        }
+        
+    }
+
+    for (let i = 0; i < hardMode.length; i++) {
+        
+        if (gamelvl == hardMode[i]) {
+            
+            lvlSetn = pourH;
+            return;
+
+        }
+        
+    }
+
+    if (gamelvl == 'ultimate') {
+        
+        lvlSetn = ultiMode;
+        return;
+
+    }
+
+}
+
+//--------------------------------------------------------------
+//--------------------------------------------------------------
+
 //Gameplay
 function gamePlay() {
 
@@ -566,6 +638,9 @@ function gamePlay() {
     var playerPoseRest = document.getElementById('playerPoseRest');
     var playerPosePour = document.getElementById('playerPosePour');
     pourFx.src = "media/pour.png" //added here since CSS varies
+
+    //level mode
+    lvlMode();
     
     // --Get Character
     if (baristaStore[0] == 'male') {
@@ -632,13 +707,13 @@ function gamePlay() {
             if (timers[0] > 0) {
 
                 timers[0]--
-                text.innerText = 'Shift Begins in: ' + timers[0];
+                text.innerText = 'Begin shift: [' + lvlNm + '] in: ' + timers[0];
 
             }
 
             if (timers[0] == 0) {
 
-                document.onkeyup = pour;
+                document.onkeyup = lvlSetn;
 
                 if (timers[1] >= 25) {
 
@@ -691,19 +766,25 @@ function gamePlay() {
     }
 
 }
+
+
 //--------------------------------------------
 //--------------------------------------------
 
-//For Pour Function
+//For all Pour Functions
 var fill_bar_inner = document.getElementById('fill');
 var pointUp = document.getElementById('pointUp');
 
+//for all pour functions
 var fill = 10
 var coffeeSold = 0
 var moneyEarned = 0
 
-//Pour Function
-function pour(key) {
+//keylist for level functions
+// var keylist
+
+//Pour Function (Easy)
+function pourE(key) {
 
     if (!game_end) {
         
@@ -714,14 +795,91 @@ function pour(key) {
 
             playerPoseRest.style.display = 'none';
             playerPosePour.style.display = 'block';
-            
+
+            //for easyMode
+    
             if (key.keyCode == 32) {
 
                 bar -= fill; //add fill amount to bar
                 fill_bar_inner.style.height = bar + 'px';
 
             }
+            
+        }
+  
+    }
 
+    if (bar == 0) { //once bar reaches zero, reset
+
+        bar = 280;
+        fill_bar_inner.style.height = bar + 'px';
+        pointUp.innerText = 'coffeeUp! moneyUp!';
+        playerPoseRest.style.display = 'block';
+        playerPosePour.style.display = 'none';
+        pourFx.style.display = 'none';
+
+        //increase money
+        if (coffee_beans.src == 'media/coffee-bag.png') {
+            
+            moneyEarned += 30
+
+        }else if(coffee_mug.src == 'media/mocha.png') {
+
+            moneyEarned += 5;
+
+        }else {
+            moneyEarned += 2 
+        }
+
+        //increase Coffee points
+        if (coffee_maker.src == 'media/coffee-machine3000.png') {
+
+            coffeeSold += 3
+
+        }else {
+
+            coffeeSold += 1
+
+        }      
+
+    }
+
+}
+
+var keyList = [];
+
+//Pour Function (Hard)
+function pourH(key) {
+
+    if (!game_end) {
+        
+        pourFx.style.display = 'block';
+        pointUp.innerText = '';
+        
+        if (key != undefined || window.event) {
+
+            playerPoseRest.style.display = 'none';
+            playerPosePour.style.display = 'block';
+
+            //for easyMode
+            if (keyList.length > 2) {
+                
+                keyList.shift()
+
+                if (key.keyCode == 37 || key.keyCode == 39) {
+
+                    keyList.push(key)
+
+                    if (keyList[0] == 37 && keyList[1] == 39) {
+
+                        bar -= fill; //add fill amount to bar
+                        fill_bar_inner.style.height = bar + 'px';
+                    
+                    }
+
+                }
+            }
+                
         }
   
     }
