@@ -569,7 +569,9 @@ li:hover {
 }
 
 .explainsRL {
-    color: green;
+    top: 315px;
+    left: 92px;
+    font-size: 25px;
 }
 
 @keyframes fade-in {
